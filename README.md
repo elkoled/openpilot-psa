@@ -12,6 +12,8 @@ Information collection for porting PSA vehicles to Openpilot
 
 # Links
 - [Power Steering Code for CMP Platform](https://github.com/BusinessEthicsPeopleFirst/EPS_TMS570_PSA_CMP)
+- [Arduino PSA Diag Sketch](https://github.com/ludwig-v/arduino-psa-diag)
+- [Diagnostique Tool](https://bitbucket.org/thoste5/diagnostique/src/master/)
 
 
 # Control Units (BSI)
