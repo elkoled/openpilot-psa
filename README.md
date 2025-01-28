@@ -18,10 +18,11 @@ Information collection for porting PSA vehicles to Openpilot
 
 
 ### BSI Harness
+The 60-pin connectors are mechanically coded. Black EP connector is used for the harness.
 | Connector         | Pins     | Manufacturer | Part          | Link |
 | ----------------- | -------- | ------------ | ------------- | ---- |
-| EH1 (brown)<br>EP (black)<br>EPB (blue)<br>EH2 (yellow) | 60       | FCI / Yueqing Haidie Electric | FX01300<br>HD601-0.6-21J<br>Male: HD601-0.6-11J        |[Link](https://yqwakan.com/product_9749_FX01300.html) <br> [Alibaba](https://spanish.alibaba.com/product-detail/60--pin--female--electrical--wire--harness-1600238725189.html) <br> [Male Connector](https://www.hdconnectorstore.com/productdetail/14.html)|
-| PAV               | 35       | TE Connectivity / YBADDVANCE | 98495002X    |[Link](https://www.fuelinjector-connectors.com/sale-13281295-98495002x-35-way-te-connectivity-amp-connectors-with-terminals.html)<br>[Alibaba](https://german.alibaba.com/product-detail/98495002X-35-Pin-Female-Cable-Harness-1600084328892.html)|
+| EH1 (brown)<br>EP (black)<br>EPB (blue)<br>EH2 (yellow) | 60       | Aptiv (Formerly Delphi) | F001300<br>13854846<br>953119<br>HD601-0.6-11J     |[Connector (Reference)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F101300?qs=MLItCLRbWsxWImEpsa78qg%3D%3D) <br> [Connector (Coded)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/13854846?qs=BJlw7L4Cy7%252BEB11mgqBWgg%3D%3D) <br> [Terminal](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/953119-1?qs=Q0GhXaox%252BNFnjJGfZVg2qw%3D%3D&srsltid=AfmBOorEo9oORSaiVk50vCUesNSCFBruh1TwkJT0yVuXFHw1dqQp1p2w) <br>[Socket](https://www.hdconnectorstore.com/productdetail/14.html)|
+| PAV               | 35       | TE Connectivity / YBADDVANCE | 98495002X    | [Link](https://www.fuelinjector-connectors.com/sale-13281295-98495002x-35-way-te-connectivity-amp-connectors-with-terminals.html)<br>[Alibaba](https://german.alibaba.com/product-detail/98495002X-35-Pin-Female-Cable-Harness-1600084328892.html) |
 
 ### Camera Harness
 | Connector         | Pins     | Manufacturer | Part          | Link |
