@@ -1,15 +1,6 @@
 # Openpilot-PSA
 Information collection for porting PSA vehicles to Openpilot
 
-# Opel Corsa F Port
-
-| Project | Branch            | start commit  | end commit | Link |
-| ------- | ----------------- | ------------- | ---------- | ---- |
-| Openpilot | opel-corsa-f | 24c4b692beab04aec9f51b1e38d9a64260b1ed91 | c39c564104158e0eb684d8305dc0f491db63a17e |[openpilot](https://github.com/incognitojam/openpilot/tree/opel-corsa-f) |
-| Panda | opel-corsa-f | c9a714565d96ed77c2f4d38cc03ce81c1eb9e3b8 | 26a14f7bb52f72b727f5adb39ed26c208acdf2e5 |[panda](https://github.com/incognitojam/panda/tree/opel-corsa-f) |
-| Opendbc | aee2010 | 4fbb36b8d4df1fd0c5f13a3ec11b16f4756258d9 | 477746488b785cdead040590921e0b9d3889e1e9 |[opendbc](https://github.com/incognitojam/opendbc/tree/aee2010) |
-
-
 # Links
 - [Arduino PSA Diag Sketch](https://github.com/ludwig-v/arduino-psa-diag)
 - [Diagnostique Tool](https://bitbucket.org/thoste5/diagnostique/src/master/)
@@ -26,13 +17,17 @@ Information collection for porting PSA vehicles to Openpilot
 | Peugeot (e)208<br>Peugeot (e)2008 | (e)CMP | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
 
 
-
-### Connectors
-
+### BSI Harness
 | Connector         | Pins     | Manufacturer | Part          | Link |
 | ----------------- | -------- | ------------ | ------------- | ---- |
 | EH1 (brown)<br>EP (black)<br>EPB (blue)<br>EH2 (yellow) | 60       | FCI / Yueqing Haidie Electric | FX01300<br>HD601-0.6-21J<br>Male: HD601-0.6-11J        |[Link](https://yqwakan.com/product_9749_FX01300.html) <br> [Alibaba](https://spanish.alibaba.com/product-detail/60--pin--female--electrical--wire--harness-1600238725189.html) <br> [Male Connector](https://www.hdconnectorstore.com/productdetail/14.html)|
 | PAV               | 35       | TE Connectivity / YBADDVANCE | 98495002X    |[Link](https://www.fuelinjector-connectors.com/sale-13281295-98495002x-35-way-te-connectivity-amp-connectors-with-terminals.html)<br>[Alibaba](https://german.alibaba.com/product-detail/98495002X-35-Pin-Female-Cable-Harness-1600084328892.html)|
+
+### Camera Harness
+| Connector         | Pins     | Manufacturer | Part          | Link |
+| ----------------- | -------- | ------------ | ------------- | ---- |
+| Camera   | 12       | TE Connectivity | 1379095-2<br>1379219-1<br>144969-1<br>1379114-2<br>185740-2<br> 1379030-1<br> 953130-2 | [Connector](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379095-2?qs=EVI5SOJzNyfRbrjTeakcGw%3D%3D) <br> [Terminal](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379219-1?qs=GQ3BsEl46pnQAYZB88d5cQ%3D%3D) <br> [Pins](https://eu.mouser.com/ProductDetail/TE-Connectivity/144969-1-Loose-Piece?qs=u4fy%2FsgLU9PzpoIYn7PeTA%3D%3D) <br>[Socket Alt 1](https://www.mouser.de/ProductDetail/TE-Connectivity/1379114-2?qs=GQ3BsEl46pmmzP6tPYGptQ%3D%3D)<br> [Socket Alt 2](https://www.mouser.de/ProductDetail/TE-Connectivity/185740-2?qs=UMrTGIqlm7lDlatQWP7cIw%3D%3D)<br> [Socket Alt 3](https://www.mouser.de/ProductDetail/TE-Connectivity/1379030-1?qs=A9sEIK4flAfIbEP77rK6GA%3D%3D)<br> [Socket Alt 4](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/953130-2?qs=Q0GhXaox%252BNFZ2KG0Jd%252BK6w%3D%3D)
+
 
 
 # Platforms
