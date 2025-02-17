@@ -8,12 +8,14 @@ Information collection for porting PSA vehicles to Openpilot
 # Control Units (BSI) 
 | Model                        | Platform | Name          | HW | SW   | Part          | Year     |
 | ---------------------------- | -------- |------------- | -- | ---- | ------------- | -------- |
-| Abarth 600e                  | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Abarth 600(e)                | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Alfa Romeo Junior Elektro    | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Alfa Romeo Junior Hybrid     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen Basalt               | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen C3 (CC21)            | SCP     | ?            | ?  | ?    | ?             | 2022 - ? |
-| Citroen C3 Aircross III      | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen C3 III               | PF1     | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2016 - ? |
+| Citroen C3 Aircross          | PF1     | BSI-EL5-CEM00 | D7 | 7.10 | 9832880680-00 | 2017 - ? |
+| Citroen C3 IV (CC21)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen C3 Aircross (CC24)   | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen C4 III               | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
 | Citroen C4 X                 | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
 | Citroen ë-C3                 | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
@@ -23,35 +25,33 @@ Information collection for porting PSA vehicles to Openpilot
 | Dongfeng Fengshen Yixuan     | CMP     | ?            | ?  | ?    | ?             | 2019 - ? |
 | Dongfeng Fengshen Yixuan EV  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
 | Dongfeng Fengshen Yixuan GS  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
-| DS 3 Crossback (E-Tense)<br> Opel Corsa(e) F | CMP | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
+| DS 3 Crossback (E-Tense)     | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
 | DS 7 Crossback               | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
-| Fiat 600                     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Fiat 600e                    | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
-| Fiat Grande Panda            | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Fiat Grande Panda Electric   | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Fiat 600(e)                  | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
+| Fiat Grande Panda(e)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Fiat Multipla                | SCP     | ?            | ?  | ?    | ?             | 2025 - ? |
 | Fiat Pickup                  | SCP     | ?            | ?  | ?    | ?             | 2025 - ? |
 | Fiat Fastback                | SCP     | ?            | ?  | ?    | ?             | 2026 - ? |
 | Jeep Avenger                 | CMP2    | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
 | Jeep Compass (2025)          | STLA Medium | ?            | ?  | ?    | ?             | 2025 - ? |
-| Lancia Ypsilon Elektro       | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Lancia Ypsilon Hybrid        | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Lancia Ypsilon(e)            | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Lancia Gamma                 | STLA Medium | ?            | ?  | ?    | ?             | 2026 - ? |
 | Lancia Delta                 | STLA Medium | ?            | ?  | ?    | ?             | 2028 - ? |
-| Opel Corsa-e                 | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
-| Opel Frontera                | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Opel Frontera-e              | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Opel Corsa(e)                | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2020 - ? |
+| Opel Corsa(e)                | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
+| Opel Frontera(e)             | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Opel Grandland               | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2020 - ? |
 | Opel Grandland II            | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
 | Opel Astra-e L               | eVMP    | ?            | ?  | ?    | ?             | 2023 - ? |
-| Opel Mokka-(e)               | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
-| Peugeot (e)208<br>Peugeot (e)2008 | CMP | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
-| Peugeot (e)208<br>Peugeot (e)2008<br>Opel Corsa(e) F<br> | CMP | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
-| Peugeot e-308 III            | eVMP    | ?            | ?  | ?    | ?             | 2022 - ? |
-| Peugeot e-408                | eVMP    | ?            | ?  | ?    | ?             | 2025 - ? |
-| Peugeot e-3008 III           | STLA Medium | ?            | ?  | ?    | ?             | 2023 - ? |
-| Peugeot e-5008 III           | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
+| Opel Mokka(e)                | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
+| Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
+| Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
+| Peugeot (e)308 III           | eVMP    | ?            | ?  | ?    | ?             | 2022 - ? |
+| Peugeot (e)408               | eVMP    | ?            | ?  | ?    | ?             | 2025 - ? |
+| Peugeot (e)3008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2023 - ? |
+| Peugeot (e)5008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
 
+* (e) - Including electric variant
 
 
 ### BSI Harness
