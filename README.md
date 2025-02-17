@@ -5,16 +5,41 @@ Information collection for porting PSA vehicles to Openpilot
 - [Arduino PSA Diag Sketch](https://github.com/ludwig-v/arduino-psa-diag)
 - [Diagnostique Tool](https://bitbucket.org/thoste5/diagnostique/src/master/)
 
+# Control Units (BSI) 
+| Model                        | Platform | Name          | HW | SW   | Part          | Year     |
+| ---------------------------- | -------- |------------- | -- | ---- | ------------- | -------- |
+| Abarth 600e                  | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Alfa Romeo Junior Elektro    | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Alfa Romeo Junior Hybrid     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen Basalt               | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen C3 (CC21)            | CMP     | ?            | ?  | ?    | ?             | 2022 - ? |
+| Citroen C3 Aircross III      | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen C4 III               | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| Citroen C4 X                 | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
+| Citroen ë-C3                 | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen ë-C3 Aircross        | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen ë-C4                 | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| Citroen ë-C4 X               | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
+| Dongfeng Fengshen Yixuan     | CMP     | ?            | ?  | ?    | ?             | 2019 - ? |
+| Dongfeng Fengshen Yixuan EV  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| Dongfeng Fengshen Yixuan GS  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| DS 3 Crossback (E-Tense)<br> Opel Corsa(e) F | CMP | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
+| DS 7 Crossback             | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
+| Fiat 600                     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Fiat 600e                    | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
+| Fiat Grande Panda            | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Fiat Grande Panda Electric   | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Jeep Avenger                 | CMP2    | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
+| Lancia Ypsilon Elektro       | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Lancia Ypsilon Hybrid        | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Opel Corsa-e                 | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| Opel Frontera                | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Opel Frontera-e              | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
+| Opel Grandland               | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2020 - ? |
+| Opel Mokka-(e)               | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
+| Peugeot (e)208<br>Peugeot (e)2008 | CMP | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
+| Peugeot (e)208<br>Peugeot (e)2008<br>Opel Corsa(e) F<br> | CMP | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
 
-# Control Units (BSI)
-| Model        | Platform | Name          | HW | SW   | Part          | Year     |
-| ------------ | -------- |------------- | -- | ---- | ------------- | -------- |
-| DS DS3 Crossback<br> Opel Corsa F | CMP | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2019 - ? |
-| Peugeot (e)208<br>Peugeot (e)2008<br>Opel Corsa(e) F<br> | (e)CMP | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
-| Opel Grandland | EMP2 | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2020 - ?|
-| DS DS7 Crossback | EMP2 | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
-| Opel Mokka-(e) | (e)CMP | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
-| Peugeot (e)208<br>Peugeot (e)2008 | (e)CMP | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
 
 
 ### BSI Harness
