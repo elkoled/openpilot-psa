@@ -12,6 +12,7 @@ Information collection for porting PSA vehicles to Openpilot
 | Alfa Romeo Junior Elektro    | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Alfa Romeo Junior Hybrid     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen Basalt               | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
+| Citroen Berlingo             | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830707680-00 | 2018 - ? |
 | Citroen C3 III               | PF1     | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2016 - ? |
 | Citroen C3 Aircross          | PF1     | BSI-EL5-CEM00 | D7 | 7.10 | 9832880680-00 | 2017 - ? |
 | Citroen C3 IV (CC21)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
@@ -20,12 +21,15 @@ Information collection for porting PSA vehicles to Openpilot
 | Citroen C4 X                 | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
 | Citroen ë-C3                 | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen ë-C3 Aircross        | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen ë-C4                 | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
+| Citroen ë-C4                 | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2020 - ? |
 | Citroen ë-C4 X               | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
+| Citroen C5 Aircross          | EMP2    | BSI-EI5-CEM00 | D6  | 6.05 | 9830813080-00 | 2017 - ? |
+| Citroen Jumpy                | EMP2    | BSI-EL3-CEM00 | D7 | 7.11 | 9845141280-00 | 2016 - ? |
 | Dongfeng Fengshen Yixuan     | CMP     | ?            | ?  | ?    | ?             | 2019 - ? |
 | Dongfeng Fengshen Yixuan EV  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
 | Dongfeng Fengshen Yixuan GS  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
 | DS 3 Crossback (E-Tense)     | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
+| DS 4                         | EMP2    | BSI-Q04-01   | ?  | ?    | 9806687980 01  | 2021 - ? |
 | DS 7 Crossback               | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
 | Fiat 600(e)                  | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
 | Fiat Grande Panda(e)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
@@ -37,17 +41,22 @@ Information collection for porting PSA vehicles to Openpilot
 | Lancia Ypsilon(e)            | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Lancia Gamma                 | STLA Medium | ?            | ?  | ?    | ?             | 2026 - ? |
 | Lancia Delta                 | STLA Medium | ?            | ?  | ?    | ?             | 2028 - ? |
+| Opel Astra-e L               | EMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
 | Opel Corsa(e)                | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2020 - ? |
 | Opel Corsa(e)                | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
+| Opel Combo                   | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2018 - ? |
 | Opel Frontera(e)             | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Opel Grandland               | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2020 - ? |
 | Opel Grandland II            | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
-| Opel Astra-e L               | eVMP    | ?            | ?  | ?    | ?             | 2023 - ? |
 | Opel Mokka(e)                | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
+| Opel Vivaro                  | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2019 - ? |
 | Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
 | Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
-| Peugeot (e)308 III           | eVMP    | ?            | ?  | ?    | ?             | 2022 - ? |
-| Peugeot (e)408               | eVMP    | ?            | ?  | ?    | ?             | 2025 - ? |
+| Peugeot (e)308 III           | EMP2    | BSI-Q03-01    | ?  | ?    | ?             | 2022 - ? |
+| Peugeot (e)408               | EMP2    | ?            | ?  | ?    | ?             | 2025 - ? |
+| Peugeot 508                  | EMP2    | BSI-Q04-01       | ?  | ?    | 9806687980 01  | 2018 - ? |
+| Peugeot 3008 II              | EMP2    | ?            | ?  | ?    | ?             | 2016 - ? |
+| Peugeot 5008 II              | EMP2    | ?            | ?  | ?    | ?             | 2017 - ? |
 | Peugeot (e)3008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2023 - ? |
 | Peugeot (e)5008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
 
