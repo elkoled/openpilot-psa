@@ -63,7 +63,7 @@ Information collection for porting PSA vehicles to Openpilot
 * (e) - Including electric variant
 
 
-### BSI Harness
+### Gateway Harness
 The 60-pin connectors are mechanically coded. Black EP connector is used for the harness.
 | Connector         | Pins     | Manufacturer | Part          | Link |
 | ----------------- | -------- | ------------ | ------------- | ---- |
@@ -76,13 +76,31 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 
 ### Camera Harness
+
+TODO: needs to be reverse-engineered. Not a great interception point.
+The camera does not directly command the EPS, maybe similar to Ford curvature output.
+
+| Pin | Name      | Color  |
+|----|-----------|--------|
+| 1  | GND       | Green-Yellow  |
+| 4  | HS2 LOW   | Purple |
+| 5  | HS2 HIGH  | Green  |
+| 8  | HS1 HIGH  | Pink   |
+| 9  | HS1 HIGH  | Orange |
+| 12 | +12VDC    | Grey   |
+
+
+![cam_harness](https://github.com/user-attachments/assets/f65708d8-3114-4cde-9d2c-d535112ebe76)
+
+
 | Connector         | Pins     | Manufacturer | Part          | Link |
 | ----------------- | -------- | ------------ | ------------- | ---- |
 | Camera   | 12       | TE Connectivity | 1379095-2<br>1379219-1<br>144969-1<br>1379114-2<br>185740-2<br> 1379030-1<br> 953130-2 | [Connector](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379095-2?qs=EVI5SOJzNyfRbrjTeakcGw%3D%3D) <br> [Terminal](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379219-1?qs=GQ3BsEl46pnQAYZB88d5cQ%3D%3D) <br> [Pins](https://eu.mouser.com/ProductDetail/TE-Connectivity/144969-1-Loose-Piece?qs=u4fy%2FsgLU9PzpoIYn7PeTA%3D%3D) <br>[Socket Alt 1](https://www.mouser.de/ProductDetail/TE-Connectivity/1379114-2?qs=GQ3BsEl46pmmzP6tPYGptQ%3D%3D)<br> [Socket Alt 2](https://www.mouser.de/ProductDetail/TE-Connectivity/185740-2?qs=UMrTGIqlm7lDlatQWP7cIw%3D%3D)<br> [Socket Alt 3](https://www.mouser.de/ProductDetail/TE-Connectivity/1379030-1?qs=A9sEIK4flAfIbEP77rK6GA%3D%3D)<br> [Socket Alt 4](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/953130-2?qs=Q0GhXaox%252BNFZ2KG0Jd%252BK6w%3D%3D)
 
 
 # Platforms
-| Name                | Models                                                                                                                                                                                                                                                                                                                                                                                                                             | Developed by                                  | Wiki                                                             |
+| Name                | Models                                                                                                                                                                                                               ![cam_harness](https://github.com/user-attachments/assets/56e54004-6a08-48f6-b935-bba66026b81a)
+                                                                                                                                                                                                              | Developed by                                  | Wiki                                                             |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------------------------|
 | CMP                 | Alfa Romeo Junior (2024–present)<br>Lancia Ypsilon (2024–present)<br>Citroën C4 III (2020–present)<br>Citroën C4 X (2022–present)<br>Dongfeng Aeolus Yixuan (2019–present)<br>Dongfeng Aeolus Yixuan GS (2020–present)<br>DS 3 Crossback (2018–present)<br>Fiat 600 (2023–present)<br>Jeep Avenger (2023–present)<br>Opel Corsa F (2019–present)<br>Opel Mokka B (2020–present)<br>Peugeot 208 II (2019–present)<br>Peugeot 2008 II (2019–present) | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
 | e-CMP               | Citroën ë-C4 (2020–present)<br>Citroën ë-C4 X (2022–present)<br>Dongfeng Aeolus Yixuan EV (2019–present)<br>DS 3 Crossback E-Tense (2019–present)<br>Opel Corsa-e (2019–present)<br>Opel Mokka-e (2020–present)<br>Peugeot e-208 (2020–present)<br>Peugeot e-2008 (2019–present)<br>Fiat 600e (2023–present)<br>Jeep Avenger EV (2023–present)<br>Lancia Ypsilon (2024–present)<br>Alfa Romeo Junior (2024–present)                                                   | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
