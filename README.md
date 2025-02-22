@@ -77,8 +77,10 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 ### Camera Harness
 
-TODO: needs to be reverse-engineered. Not a great interception point.
+TODO: needs to be reverse-engineered. No ideal interception point. <br>
 The camera does not directly command the EPS, maybe similar to Ford curvature output.
+
+**Recorded Route:** 6a7075a4fdd765ee/00000011--7c1eb240a9
 
 | Pin | Name      | Color  |
 |----|-----------|--------|
@@ -99,8 +101,7 @@ The camera does not directly command the EPS, maybe similar to Ford curvature ou
 
 
 # Platforms
-| Name                | Models                                                                                                                                                                                                               ![cam_harness](https://github.com/user-attachments/assets/56e54004-6a08-48f6-b935-bba66026b81a)
-                                                                                                                                                                                                              | Developed by                                  | Wiki                                                             |
+| Name                | Models                                                                                                           | Developed by                                  | Wiki                                                             |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------------------------|
 | CMP                 | Alfa Romeo Junior (2024–present)<br>Lancia Ypsilon (2024–present)<br>Citroën C4 III (2020–present)<br>Citroën C4 X (2022–present)<br>Dongfeng Aeolus Yixuan (2019–present)<br>Dongfeng Aeolus Yixuan GS (2020–present)<br>DS 3 Crossback (2018–present)<br>Fiat 600 (2023–present)<br>Jeep Avenger (2023–present)<br>Opel Corsa F (2019–present)<br>Opel Mokka B (2020–present)<br>Peugeot 208 II (2019–present)<br>Peugeot 2008 II (2019–present) | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
 | e-CMP               | Citroën ë-C4 (2020–present)<br>Citroën ë-C4 X (2022–present)<br>Dongfeng Aeolus Yixuan EV (2019–present)<br>DS 3 Crossback E-Tense (2019–present)<br>Opel Corsa-e (2019–present)<br>Opel Mokka-e (2020–present)<br>Peugeot e-208 (2020–present)<br>Peugeot e-2008 (2019–present)<br>Fiat 600e (2023–present)<br>Jeep Avenger EV (2023–present)<br>Lancia Ypsilon (2024–present)<br>Alfa Romeo Junior (2024–present)                                                   | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
