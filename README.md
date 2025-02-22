@@ -77,8 +77,7 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 ### Camera Harness
 
-TODO: needs to be reverse-engineered. No ideal interception point. <br>
-The camera does not directly command the EPS, maybe similar to Ford curvature output.
+**TODO:** Signals need to be reverse-engineered. The camera does not directly command the EPS, maybe similar to Ford curvature output.
 
 **Recorded Route:** 6a7075a4fdd765ee/00000011--7c1eb240a9
 
