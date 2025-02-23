@@ -101,7 +101,8 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 ### Routes
 
-**Camera Harness*: 6a7075a4fdd765ee/00000011--7c1eb240a9
+**Camera Harness**: 6a7075a4fdd765ee/00000011--7c1eb240a9
+
 **Joystick mode**: 6a7075a4fdd765ee/000000ae--89b2f237b5
 
 
