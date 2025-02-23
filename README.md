@@ -105,6 +105,8 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Joystick mode**: 6a7075a4fdd765ee/000000ae--89b2f237b5
 
+**Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e/0
+
 
 # Platforms
 | Name                | Models                                                                                                           | Developed by                                  | Wiki                                                             |
