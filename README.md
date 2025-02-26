@@ -6,6 +6,7 @@ Information collection for porting PSA vehicles to Openpilot
 - [Diagnostique Tool](https://bitbucket.org/thoste5/diagnostique/src/master/)
 
 # Control Units (BSI) 
+Car models in scope for the PSA openpilot port. If name and part number are present, the BSI Harness is compatible and a port compatibility is likely.
 | Model                        | Platform | Name          | HW | SW   | Part          | Year     |
 | ---------------------------- | -------- |------------- | -- | ---- | ------------- | -------- |
 | Abarth 600(e)                | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
@@ -63,23 +64,21 @@ Information collection for porting PSA vehicles to Openpilot
 * (e) - Including electric variant
 
 
-### Gateway Harness
+### Gateway Harness (working)
 The 60-pin connectors are mechanically coded. Black EP connector is used for the harness.
 | Connector         | Pins     | Manufacturer | Part          | Link |
 | ----------------- | -------- | ------------ | ------------- | ---- |
 | EH1 (brown)<br>EP (black)<br>EPB (blue)<br>EH2 (yellow) | 60       | Aptiv (Formerly Delphi) | F001300<br>13854846<br>F070300<br>F170300<br>F270300<br>HD601-0.6-11J<br>144969-1     |[Connector (Reference)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F101300?qs=MLItCLRbWsxWImEpsa78qg%3D%3D) <br> [Connector (Coded)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/13854846?qs=BJlw7L4Cy7%252BEB11mgqBWgg%3D%3D) <br> [Terminal (brown)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F070300?qs=SRYZG9HaIQ2x4f%252Bq7ksEBw%3D%3D) <br> [Terminal (blue)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F170300?qs=SRYZG9HaIQ03F834F05UMg%3D%3D) <br> [Terminal (white)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F270300?qs=SRYZG9HaIQ3H7TE3kpQvwg%3D%3D) <br>[Socket](https://www.hdconnectorstore.com/productdetail/14.html)<br>[Pins](https://www.mouser.de/ProductDetail/TE-Connectivity/144969-1-Loose-Piece?qs=u4fy%2FsgLU9PzpoIYn7PeTA%3D%3D)|
 
-#### [Schematic](https://github.com/user-attachments/files/18695226/harness.pdf)
+#### Schematic
 ![image](https://github.com/user-attachments/assets/79f9d5f1-1354-4987-b83a-f59119794af0)
 
+[Download Schematic PDF](https://github.com/user-attachments/files/18695226/harness.pdf)
 
 
+### Camera Harness (WIP)
 
-### Camera Harness
-
-**TODO:** Signals need to be reverse-engineered. The camera does not directly command the EPS, maybe similar to Ford curvature output.
-
-**Recorded Route:** 6a7075a4fdd765ee/00000011--7c1eb240a9
+**TODO:** Signals need to be reverse-engineered. The camera does not directly command the EPS, maybe similar to Ford curvature output. For a recorded route, refer to [Routes](#routes).
 
 | Pin | Name      | Color  |
 |----|-----------|--------|
@@ -105,7 +104,7 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Joystick mode**: 6a7075a4fdd765ee/000000ae--89b2f237b5
 
-**Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e/0
+**Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e
 
 
 # Platforms
