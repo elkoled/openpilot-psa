@@ -107,6 +107,41 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e
 
+# ECU Firmware Query
+
+#### ARTIV (Radar ECU)
+With this query, we get a response from ARTIV:
+
+`python panda/examples/query_fw_versions.py --addr 6b6 --bus 1 --rxoffset -20 --no-obd`
+
+#### ARTIV Diagnosis Dongle Logs
+
+**CAN Request Log**
+
+| Time (s) | Address | Bus | Data |
+|----------|---------|-----|------|
+| 54.016 | 0x6b6 | 1 | 0x021001 |
+| 54.086 | 0x6b6 | 1 | 0x0322F0FE |
+| 54.126 | 0x6b6 | 1 | 0x300005 |
+| 158.956 | 0x6b6 | 1 | 0x021001 |
+| 159.005 | 0x6b6 | 1 | 0x0322F0FE |
+| 159.036 | 0x6b6 | 1 | 0x300005 |
+
+**CAN Response Log**
+
+| Time (s) | Address | Bus | Data |
+|----------|---------|-----|------|
+| 54.026 | 0x696 | 1 | 0x06500100C80014 |
+| 54.096 | 0x696 | 1 | 0x101B62F0FEFFFF00 |
+| 54.126 | 0x696 | 1 | 0x21000FE818052140 |
+| 54.136 | 0x696 | 1 | 0x2259A403FFFFFF00 |
+| 54.156 | 0x696 | 1 | 0x2302000001948097 |
+| 158.956 | 0x696 | 1 | 0x06500100C80014 |
+| 159.005 | 0x696 | 1 | 0x101B62F0FEFFFF00 |
+| 159.036 | 0x696 | 1 | 0x21000FE818052140 |
+| 159.055 | 0x696 | 1 | 0x2259A403FFFFFF00 |
+| 159.066 | 0x696 | 1 | 0x2302000001948097 |
+
 
 # Platforms
 | Name                | Models                                                                                                           | Developed by                                  | Wiki                                                             |
