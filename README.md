@@ -4,16 +4,16 @@
 
 | ECU Name  | CAN Tx Addr | CAN Rx Addr | Bus | ECU Serial Number        | Manufacturing Date | Notes                  |
 |-----------|-------------|-------------|-----|---------------------------|---------------------|----------------------|
-| ARTIV     | 0x6B6       | 0x696       | 1   | 212053276                | 0x180521 (21.05.18) | Radar                |
+| ARTIV     | 0x6B6       | 0x696       | 1   | 212053276                | 0x180521 (21.05.18) | Radar                 |
 | DIRECTN   | 0x6B5       | 0x695       | 0   | 6077GC0817309            | 0x070615 (15.06.07) |              |
 | CMM_E/HCU2| 0x6A6       | 0x686       | 0   | 210306062100             | 0x060321 (21.03.06) |              |
 | MSB       | 0x6B4       | 0x694       | 0   | 521021900860             | 0x110121 (21.01.11) |              |
 | VCU       | 0x6A2       | 0x682       | 0   | 9210126909               | 0x170521 (21.05.17) |              |
-| ABRASR    | 0x6AD       | 0x68D       | 0   | 085095700857210527       | 0x270521 (21.05.27) |              |
+| ABRASR    | 0x6AD       | 0x68D       | 0   | 085095700857210527       | 0x270521 (21.05.27) | DTC error on query    |
 
 
-## ARTIV (Radar ECU)
-
+## ARTIV (6B6)
+```
 python panda/examples/query_fw_versions.py --addr 6b6 --bus 1 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -203,10 +203,10 @@ ISO-TP: RESPONSE - 0x696 0x7f2231
 
 0xF18B ECU_MANUFACTURING_DATE: b'\x18\x05!'
 0xF18C ECU_SERIAL_NUMBER: b'212053276'
+```
 
-
-## DIRECTN
-
+## DIRECTN (6B5)
+```
 python panda/examples/query_fw_versions.py --addr 6b5 --bus 0 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -436,10 +436,10 @@ ISO-TP: RESPONSE - 0x695 0x7f2231
 0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
 0xF18B ECU_MANUFACTURING_DATE: b'\x07\x06\x15'
 0xF18C ECU_SERIAL_NUMBER: b'6077GC0817309'
+```
 
-
-## CMM_E/HCU2
-
+## CMM_E/HCU2 (6A6)
+```
 python panda/examples/query_fw_versions.py --addr 6a6 --bus 0 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -667,10 +667,10 @@ ISO-TP: RESPONSE - 0x686 0x7f2231
 0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
 0xF18B ECU_MANUFACTURING_DATE: b'\x06\x03!'
 0xF18C ECU_SERIAL_NUMBER: b'210306062100'
+```
 
-
-## MSB
-
+## MSB (6B4)
+```
 python panda/examples/query_fw_versions.py --addr 6b4 --bus 0 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -914,9 +914,10 @@ ISO-TP: RESPONSE - 0x694 0x7f2231
 0xF18C ECU_SERIAL_NUMBER: b'521021900860'
 0xF193 SYSTEM_SUPPLIER_ECU_HARDWARE_VERSION_NUMBER: b'810221-00080V1.1 '
 0xF195 SYSTEM_SUPPLIER_ECU_SOFTWARE_VERSION_NUMBER: b'A0BMUC059K36CV20\x00'
+```
 
-## VCU
-
+## VCU (6A2)
+```
 python panda/examples/query_fw_versions.py --addr 6a2 --bus 0 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -1157,9 +1158,10 @@ ISO-TP: RESPONSE - 0x682 0x7f2231
 0xF18B ECU_MANUFACTURING_DATE: b'\x17\x05!'
 0xF18C ECU_SERIAL_NUMBER: b'9210126909'
 0xF196 EXHAUST_REGULATION_OR_TYPE_APPROVAL_NUMBER: b'HOM-000452\x00\x00\x00\x00\x00\x00'
+```
 
-## ABRASR (Dash error on query)
-
+## ABRASR (6AD)
+```
 python panda/examples/query_fw_versions.py --addr 6ad --bus 0 --rxoffset -20 --no-obd --debug
 INFO: connecting to panda 020026000151323431333839
 querying addresses ...
@@ -1388,4 +1390,4 @@ ISO-TP: RESPONSE - 0x68d 0x7f2231
 0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
 0xF18B ECU_MANUFACTURING_DATE: b"'\x05!"
 0xF18C ECU_SERIAL_NUMBER: b'085095700857210527'
-
+```
