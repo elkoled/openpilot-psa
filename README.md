@@ -1,157 +1,1391 @@
-# Openpilot-PSA
-Information collection for porting PSA vehicles to Openpilot
-
-# Links
-- [Arduino PSA Diag Sketch](https://github.com/ludwig-v/arduino-psa-diag)
-- [Diagnostique Tool](https://bitbucket.org/thoste5/diagnostique/src/master/)
-
-# Control Units (BSI) 
-Car models in scope for the PSA openpilot port. If name and part number are present, the BSI Harness is compatible and a port compatibility is likely.
-| Model                        | Platform | Name          | HW | SW   | Part          | Year     |
-| ---------------------------- | -------- |------------- | -- | ---- | ------------- | -------- |
-| Abarth 600(e)                | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Alfa Romeo Junior Elektro    | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Alfa Romeo Junior Hybrid     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen Basalt               | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen Berlingo             | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830707680-00 | 2018 - ? |
-| Citroen C3 III               | PF1     | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2016 - ? |
-| Citroen C3 Aircross          | PF1     | BSI-EL5-CEM00 | D7 | 7.10 | 9832880680-00 | 2017 - ? |
-| Citroen C3 IV (CC21)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen C3 Aircross (CC24)   | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen C4 III               | CMP     | BSI-EI4-CEM00 | D7  | 7.09 | 9832881080-00 | 2020 - ? |
-| Citroen C4 X                 | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
-| Citroen ë-C3                 | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen ë-C3 Aircross        | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen ë-C4                 | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2020 - ? |
-| Citroen ë-C4 X               | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
-| Citroen C5 Aircross          | EMP2    | BSI-EI5-CEM00 | D6  | 6.05 | 9830813080-00 | 2017 - ? |
-| Citroen Jumpy                | EMP2    | BSI-EL3-CEM00 | D7 | 7.11 | 9845141280-00 | 2016 - ? |
-| Dongfeng Fengshen Yixuan     | CMP     | ?            | ?  | ?    | ?             | 2019 - ? |
-| Dongfeng Fengshen Yixuan EV  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
-| Dongfeng Fengshen Yixuan GS  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
-| DS 3 Crossback (E-Tense)     | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
-| DS 4                         | EMP2    | BSI-Q04-01   | ?  | ?    | 9806687980 01  | 2021 - ? |
-| DS 7 Crossback               | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
-| Fiat 600(e)                  | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
-| Fiat Grande Panda(e)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Fiat Multipla                | SCP     | ?            | ?  | ?    | ?             | 2025 - ? |
-| Fiat Pickup                  | SCP     | ?            | ?  | ?    | ?             | 2025 - ? |
-| Fiat Fastback                | SCP     | ?            | ?  | ?    | ?             | 2026 - ? |
-| Jeep Avenger                 | CMP2    | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
-| Jeep Compass (2025)          | STLA Medium | ?            | ?  | ?    | ?             | 2025 - ? |
-| Lancia Ypsilon(e)            | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
-| Lancia Gamma                 | STLA Medium | ?            | ?  | ?    | ?             | 2026 - ? |
-| Lancia Delta                 | STLA Medium | ?            | ?  | ?    | ?             | 2028 - ? |
-| Opel Astra-e L               | EMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
-| Opel Corsa(e)                | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2020 - ? |
-| Opel Corsa(e)                | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
-| Opel Combo                   | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2018 - ? |
-| Opel Frontera(e)             | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Opel Grandland               | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2020 - ? |
-| Opel Grandland II            | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
-| Opel Mokka(e)                | CMP     | BSI-EI4-CEM00 | D7 | 7.09 | 9832881080-00 | 2021 - ? |
-| Opel Vivaro                  | EMP2    | BSI-EL3-CEM00 | D6 | 6.05 | 9830790580-00 | 2019 - ? |
-| Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D6 | 6.05 | 9830708180-00 | 2019 - ? |
-| Peugeot (e)208 / (e)2008     | CMP     | BSI-EI4-CEM00 | D7 | 7.51 | 9846483980-00 | 2021 - ? |
-| Peugeot (e)308 III           | EMP2    | BSI-Q03-01    | ?  | ?    | ?             | 2022 - ? |
-| Peugeot (e)408               | EMP2    | ?            | ?  | ?    | ?             | 2025 - ? |
-| Peugeot 508                  | EMP2    | BSI-Q04-01       | ?  | ?    | 9806687980 01  | 2018 - ? |
-| Peugeot 3008 II              | EMP2    | ?            | ?  | ?    | ?             | 2016 - ? |
-| Peugeot 5008 II              | EMP2    | ?            | ?  | ?    | ?             | 2017 - ? |
-| Peugeot (e)3008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2023 - ? |
-| Peugeot (e)5008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
-
-* (e) - Including electric variant
-
-
-### Gateway Harness (working)
-The 60-pin connectors are mechanically coded. Black EP connector is used for the harness.
-| Connector         | Pins     | Manufacturer | Part          | Link |
-| ----------------- | -------- | ------------ | ------------- | ---- |
-| EH1 (brown)<br>EP (black)<br>EPB (blue)<br>EH2 (yellow) | 60       | Aptiv (Formerly Delphi) | F001300<br>13854846<br>F070300<br>F170300<br>F270300<br>HD601-0.6-11J<br>144969-1     |[Connector (Reference)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F101300?qs=MLItCLRbWsxWImEpsa78qg%3D%3D) <br> [Connector (Coded)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/13854846?qs=BJlw7L4Cy7%252BEB11mgqBWgg%3D%3D) <br> [Terminal (brown)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F070300?qs=SRYZG9HaIQ2x4f%252Bq7ksEBw%3D%3D) <br> [Terminal (blue)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F170300?qs=SRYZG9HaIQ03F834F05UMg%3D%3D) <br> [Terminal (white)](https://www.mouser.de/ProductDetail/Aptiv-formerly-Delphi/F270300?qs=SRYZG9HaIQ3H7TE3kpQvwg%3D%3D) <br>[Socket](https://www.hdconnectorstore.com/productdetail/14.html)<br>[Pins](https://www.mouser.de/ProductDetail/TE-Connectivity/144969-1-Loose-Piece?qs=u4fy%2FsgLU9PzpoIYn7PeTA%3D%3D)|
-
-#### Schematic
-![image](https://github.com/user-attachments/assets/79f9d5f1-1354-4987-b83a-f59119794af0)
-
-[Download Schematic PDF](https://github.com/user-attachments/files/18695226/harness.pdf)
-
-
-### Camera Harness (WIP)
-
-**TODO:** Signals need to be reverse-engineered. The camera does not directly command the EPS, maybe similar to Ford curvature output. For a recorded route, refer to [Routes](#routes).
-
-| Pin | Name      | Color  |
-|----|-----------|--------|
-| 1  | GND       | Green-Yellow  |
-| 4  | HS2 LOW   | Purple |
-| 5  | HS2 HIGH  | Green  |
-| 8  | HS1 HIGH  | Pink   |
-| 9  | HS1 HIGH  | Orange |
-| 12 | +12VDC    | Grey   |
-
-
-![cam_harness](https://github.com/user-attachments/assets/f65708d8-3114-4cde-9d2c-d535112ebe76)
-
-
-| Connector         | Pins     | Manufacturer | Part          | Link |
-| ----------------- | -------- | ------------ | ------------- | ---- |
-| Camera   | 12       | TE Connectivity | 1379095-2<br>1379219-1<br>144969-1<br>1379114-2<br>185740-2<br> 1379030-1<br> 953130-2 | [Connector](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379095-2?qs=EVI5SOJzNyfRbrjTeakcGw%3D%3D) <br> [Terminal](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/1379219-1?qs=GQ3BsEl46pnQAYZB88d5cQ%3D%3D) <br> [Pins](https://eu.mouser.com/ProductDetail/TE-Connectivity/144969-1-Loose-Piece?qs=u4fy%2FsgLU9PzpoIYn7PeTA%3D%3D) <br>[Socket Alt 1](https://www.mouser.de/ProductDetail/TE-Connectivity/1379114-2?qs=GQ3BsEl46pmmzP6tPYGptQ%3D%3D)<br> [Socket Alt 2](https://www.mouser.de/ProductDetail/TE-Connectivity/185740-2?qs=UMrTGIqlm7lDlatQWP7cIw%3D%3D)<br> [Socket Alt 3](https://www.mouser.de/ProductDetail/TE-Connectivity/1379030-1?qs=A9sEIK4flAfIbEP77rK6GA%3D%3D)<br> [Socket Alt 4](https://www.mouser.de/ProductDetail/TE-Connectivity-AMP/953130-2?qs=Q0GhXaox%252BNFZ2KG0Jd%252BK6w%3D%3D)
-
-
-### Routes
-**Diagnosis Dongle ECU Query**: 6a7075a4fdd765ee/0000009c--e83426b0d9
-
-**Camera Harness**: 6a7075a4fdd765ee/00000011--7c1eb240a9
-
-**Joystick mode**: 6a7075a4fdd765ee/000000ae--89b2f237b5
-
-**Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e
-
 # ECU Firmware Query
 
-#### ARTIV (Radar ECU)
-With this query, we get a response from ARTIV:
+## Summary
 
-`python panda/examples/query_fw_versions.py --addr 6b6 --bus 1 --rxoffset -20 --no-obd`
-
-#### ARTIV Diagnosis Dongle Logs
-
-**CAN Request Log**
-
-| Time (s) | Address | Bus | Data |
-|----------|---------|-----|------|
-| 54.016 | 0x6b6 | 1 | 0x021001 |
-| 54.086 | 0x6b6 | 1 | 0x0322F0FE |
-| 54.126 | 0x6b6 | 1 | 0x300005 |
-| 158.956 | 0x6b6 | 1 | 0x021001 |
-| 159.005 | 0x6b6 | 1 | 0x0322F0FE |
-| 159.036 | 0x6b6 | 1 | 0x300005 |
-
-**CAN Response Log**
-
-| Time (s) | Address | Bus | Data |
-|----------|---------|-----|------|
-| 54.026 | 0x696 | 1 | 0x06500100C80014 |
-| 54.096 | 0x696 | 1 | 0x101B62F0FEFFFF00 |
-| 54.126 | 0x696 | 1 | 0x21000FE818052140 |
-| 54.136 | 0x696 | 1 | 0x2259A403FFFFFF00 |
-| 54.156 | 0x696 | 1 | 0x2302000001948097 |
-| 158.956 | 0x696 | 1 | 0x06500100C80014 |
-| 159.005 | 0x696 | 1 | 0x101B62F0FEFFFF00 |
-| 159.036 | 0x696 | 1 | 0x21000FE818052140 |
-| 159.055 | 0x696 | 1 | 0x2259A403FFFFFF00 |
-| 159.066 | 0x696 | 1 | 0x2302000001948097 |
+| ECU Name  | CAN Tx Addr | CAN Rx Addr | Bus | ECU Serial Number        | Manufacturing Date | Notes                  |
+|-----------|-------------|-------------|-----|---------------------------|---------------------|----------------------|
+| ARTIV     | 0x6B6       | 0x696       | 1   | 212053276                | 0x180521 (21.05.18) | Radar                |
+| DIRECTN   | 0x6B5       | 0x695       | 0   | 6077GC0817309            | 0x070615 (15.06.07) |              |
+| CMM_E/HCU2| 0x6A6       | 0x686       | 0   | 210306062100             | 0x060321 (21.03.06) |              |
+| MSB       | 0x6B4       | 0x694       | 0   | 521021900860             | 0x110121 (21.01.11) |              |
+| VCU       | 0x6A2       | 0x682       | 0   | 9210126909               | 0x170521 (21.05.17) |              |
+| ABRASR    | 0x6AD       | 0x68D       | 0   | 085095700857210527       | 0x270521 (21.05.27) |              |
 
 
-# Platforms
-| Name                | Models                                                                                                           | Developed by                                  | Wiki                                                             |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------------------------|
-| CMP                 | Alfa Romeo Junior (2024–present)<br>Lancia Ypsilon (2024–present)<br>Citroën C4 III (2020–present)<br>Citroën C4 X (2022–present)<br>Dongfeng Aeolus Yixuan (2019–present)<br>Dongfeng Aeolus Yixuan GS (2020–present)<br>DS 3 Crossback (2018–present)<br>Fiat 600 (2023–present)<br>Jeep Avenger (2023–present)<br>Opel Corsa F (2019–present)<br>Opel Mokka B (2020–present)<br>Peugeot 208 II (2019–present)<br>Peugeot 2008 II (2019–present) | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
-| e-CMP               | Citroën ë-C4 (2020–present)<br>Citroën ë-C4 X (2022–present)<br>Dongfeng Aeolus Yixuan EV (2019–present)<br>DS 3 Crossback E-Tense (2019–present)<br>Opel Corsa-e (2019–present)<br>Opel Mokka-e (2020–present)<br>Peugeot e-208 (2020–present)<br>Peugeot e-2008 (2019–present)<br>Fiat 600e (2023–present)<br>Jeep Avenger EV (2023–present)<br>Lancia Ypsilon (2024–present)<br>Alfa Romeo Junior (2024–present)                                                   | PSA, Dongfeng                                 | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform)    |
-| EMP2                | Citroën C4 Picasso/Spacetourer II (2013–2020)<br>Citroën Grand C4 Picasso/Spacetourer II (2013–2022)<br>Citroën C6 II (2016–2023)<br>Peugeot 308 II (2013–2021)<br>Peugeot 408 II (2014–present)<br>Citroën C5 Aircross (2017–present)<br>DS 7 Crossback (2017–present)<br>Opel Grandland (2017–present)<br>Peugeot 3008 II (2016–2023)<br>Peugeot 5008 II (2017–2024)<br>DS 9 (2020–present)<br>Peugeot 508 II (2018–present)<br>Citroën C5 X (2021–present)<br>DS 4 II (2021–present)<br>Opel Astra L (2021–present)<br>Peugeot 308 III (2021–present)<br>Peugeot 408 (2022–present)                                   | PSA, Toyota                                  | [Link](https://en.wikipedia.org/wiki/EMP2_platform)              |
-| Smart Car Platform  | Citroën C3 (2022–present)<br>Citroën C3 Aircross (2023–present)<br>Citroën C3/e-C3 IV (2024–present)<br>Citroën Basalt (2024–present)<br>Opel Frontera (2024)<br>Fiat Grande Panda (2024–present)<br>Fiat Multipla (2025–present)<br>Fiat Pickup (2025–present)<br>Fiat Fastback (2026–present)                                                                                                                                                                   | Tata Consultancy Services for Stellantis      | [Link](https://en.wikipedia.org/wiki/Common_Modular_Platform#Smart_Car_Platform) |
-| K0 Platform         | Citroën Jumpy III (2016–present)<br>Citroën SpaceTourer (2016–present)<br>Peugeot Expert (2016–present)<br>Peugeot Traveller (2016–present)<br>Toyota ProAce (2016–present)<br>Toyota ProAce Verso (2016–present)<br>Opel/Vauxhall Vivaro (2019–present)<br>Opel Zafira Life (2019–present)<br>Fiat Scudo (2022–present)<br>Fiat Ulysse (2022–present)                                                                                              | Stellantis, Toyota                            | [Link](https://en.wikipedia.org/wiki/EMP2_platform#K0_platform)  |
-| eVMP                | Peugeot e-308 III (2022–present)<br>Peugeot e-408 (2025–present)<br>Opel Astra-e L (2023–present)                                                                                                                                                                                                                                                                                                                                 | Stellantis                                     | [Link](https://en.wikipedia.org/wiki/EMP2_platform#eVMP)         |
-| STLA Medium         | Peugeot e-3008 III (2023–present)<br>Peugeot e-5008 III (2024–present)<br>Opel Grandland II (2024–present)<br>Citroën C5 Aircross (2025, upcoming)<br>Jeep Compass (2025, upcoming)<br>DS 8 (2025, upcoming)<br>Lancia Gamma (2026, upcoming)<br>Alfa Romeo Tonale II (2027, upcoming)<br>Alfa Romeo Giulietta (2028, upcoming)<br>Lancia Delta (2028, upcoming)                                                                                                                                                              | Stellantis                                     | [Link](https://en.wikipedia.org/wiki/EMP2_platform#STLA_Medium)  |
-| STLA Small          | Fiat New 500 (coming 2027)                                                                                                                                                                                                                                                                                                                                                                                                           | Stellantis                                     | [Link](https://en.wikipedia.org/wiki/EMP2_platform#STLA_Small)     |
+## ARTIV (Radar ECU)
+
+python panda/examples/query_fw_versions.py --addr 6b6 --bus 1 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6b6, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6b6 0x3e00
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x023e000000000000
+CAN-RX: 0x696 - 0x027e00
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7e00
+ISO-TP: REQUEST - 0x6b6 0x1001
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0210010000000000
+CAN-RX: 0x696 - 0x06500100c80014
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x500100c80014
+ISO-TP: REQUEST - 0x6b6 0x1003
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0210030000000000
+CAN-RX: 0x696 - 0x06500300c80014
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x500300c80014
+ISO-TP: REQUEST - 0x6b6 0x22f180
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18000000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f181
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18100000000
+ISO-TP: REQUEST - 0x6b6 0x22f182
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18200000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f183
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18300000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f184
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18400000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f185
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18500000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f186
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18600000000
+ISO-TP: REQUEST - 0x6b6 0x22f187
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18700000000
+ISO-TP: REQUEST - 0x6b6 0x22f188
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18800000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f189
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18900000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f18a
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18a00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f18b
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18b00000000
+CAN-RX: 0x696 - 0x0662f18b180521
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x62f18b180521
+ISO-TP: REQUEST - 0x6b6 0x22f18c
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18c00000000
+CAN-RX: 0x696 - 0x100c62f18c323132
+ISO-TP: RX - first frame - 0x696 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b6
+CAN-TX: 0x6b6 - 0x3000000000000000
+CAN-RX: 0x696 - 0x21303533323736
+ISO-TP: RX - consecutive frame - 0x696 idx=1 done=True
+ISO-TP: RESPONSE - 0x696 0x62f18c323132303533323736
+ISO-TP: REQUEST - 0x6b6 0x22f18d
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18d00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f18e
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f18e00000000
+ISO-TP: REQUEST - 0x6b6 0x22f190
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19000000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f191
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19100000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f192
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19200000000
+ISO-TP: REQUEST - 0x6b6 0x22f193
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19300000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f194
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19400000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f195
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19500000000
+ISO-TP: REQUEST - 0x6b6 0x22f196
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19600000000
+ISO-TP: REQUEST - 0x6b6 0x22f197
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19700000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f198
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19800000000
+ISO-TP: REQUEST - 0x6b6 0x22f199
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19900000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f19a
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19a00000000
+ISO-TP: REQUEST - 0x6b6 0x22f19b
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19b00000000
+ISO-TP: REQUEST - 0x6b6 0x22f19c
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19c00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f19d
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19d00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f19e
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19e00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+ISO-TP: REQUEST - 0x6b6 0x22f19f
+ISO-TP: TX - single frame - 0x6b6
+CAN-TX: 0x6b6 - 0x0322f19f00000000
+CAN-RX: 0x696 - 0x037f2231
+ISO-TP: RX - single frame - 0x696 idx=0 done=True
+ISO-TP: RESPONSE - 0x696 0x7f2231
+0x6b6, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.84s/it]
+
+
+*** Results for address 0x6B6 ***
+
+
+0xF18B ECU_MANUFACTURING_DATE: b'\x18\x05!'
+0xF18C ECU_SERIAL_NUMBER: b'212053276'
+
+
+## DIRECTN
+
+python panda/examples/query_fw_versions.py --addr 6b5 --bus 0 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6b5, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6b5 0x3e00
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x023e000000000000
+CAN-RX: 0x695 - 0x027e00
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7e00
+ISO-TP: REQUEST - 0x6b5 0x1001
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0210010000000000
+CAN-RX: 0x695 - 0x06500100c80014
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x500100c80014
+ISO-TP: REQUEST - 0x6b5 0x1003
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0210030000000000
+CAN-RX: 0x695 - 0x06500300c80014
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x500300c80014
+ISO-TP: REQUEST - 0x6b5 0x22f180
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18000000000
+CAN-RX: 0x695 - 0x101062f180010906
+ISO-TP: RX - first frame - 0x695 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b5
+CAN-TX: 0x6b5 - 0x3000000000000000
+CAN-RX: 0x695 - 0x210f0f0f0f0f0f08
+ISO-TP: RX - consecutive frame - 0x695 idx=1 done=False
+CAN-RX: 0x695 - 0x22000201
+ISO-TP: RX - consecutive frame - 0x695 idx=2 done=True
+ISO-TP: RESPONSE - 0x695 0x62f1800109060f0f0f0f0f0f08000201
+ISO-TP: REQUEST - 0x6b5 0x22f181
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18100000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f182
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18200000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f183
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18300000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f184
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18400000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f185
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18500000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f186
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18600000000
+CAN-RX: 0x695 - 0x0462f18603
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x62f18603
+ISO-TP: REQUEST - 0x6b5 0x22f187
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18700000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f188
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18800000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f189
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18900000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f18a
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18a00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f18b
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18b00000000
+CAN-RX: 0x695 - 0x0662f18b070615
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x62f18b070615
+ISO-TP: REQUEST - 0x6b5 0x22f18c
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18c00000000
+CAN-RX: 0x695 - 0x101062f18c363037
+ISO-TP: RX - first frame - 0x695 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b5
+CAN-TX: 0x6b5 - 0x3000000000000000
+CAN-RX: 0x695 - 0x2137474330383137
+ISO-TP: RX - consecutive frame - 0x695 idx=1 done=False
+CAN-RX: 0x695 - 0x22333039
+ISO-TP: RX - consecutive frame - 0x695 idx=2 done=True
+ISO-TP: RESPONSE - 0x695 0x62f18c36303737474330383137333039
+ISO-TP: REQUEST - 0x6b5 0x22f18d
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18d00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f18e
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f18e00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f190
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19000000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f191
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19100000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f192
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19200000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f193
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19300000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f194
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19400000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f195
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19500000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f196
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19600000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f197
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19700000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f198
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19800000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f199
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19900000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19a
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19a00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19b
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19b00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19c
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19c00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19d
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19d00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19e
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19e00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+ISO-TP: REQUEST - 0x6b5 0x22f19f
+ISO-TP: TX - single frame - 0x6b5
+CAN-TX: 0x6b5 - 0x0322f19f00000000
+CAN-RX: 0x695 - 0x037f2231
+ISO-TP: RX - single frame - 0x695 idx=0 done=True
+ISO-TP: RESPONSE - 0x695 0x7f2231
+0x6b5, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.44s/it]
+
+
+*** Results for address 0x6B5 ***
+
+
+0xF180 BOOT_SOFTWARE_IDENTIFICATION: b'\x01\t\x06\x0f\x0f\x0f\x0f\x0f\x0f\x08\x00\x02\x01'
+0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
+0xF18B ECU_MANUFACTURING_DATE: b'\x07\x06\x15'
+0xF18C ECU_SERIAL_NUMBER: b'6077GC0817309'
+
+
+## CMM_E/HCU2
+
+python panda/examples/query_fw_versions.py --addr 6a6 --bus 0 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6a6, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6a6 0x3e00
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x023e000000000000
+CAN-RX: 0x686 - 0x027e00
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7e00
+ISO-TP: REQUEST - 0x6a6 0x1001
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0210010000000000
+CAN-RX: 0x686 - 0x06500100c80014
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x500100c80014
+ISO-TP: REQUEST - 0x6a6 0x1003
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0210030000000000
+CAN-RX: 0x686 - 0x06500300c80014
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x500300c80014
+ISO-TP: REQUEST - 0x6a6 0x22f180
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18000000000
+CAN-RX: 0x686 - 0x100d62f180000000
+ISO-TP: RX - first frame - 0x686 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6a6
+CAN-TX: 0x6a6 - 0x3000000000000000
+CAN-RX: 0x686 - 0x2100000000000000
+ISO-TP: RX - consecutive frame - 0x686 idx=1 done=True
+ISO-TP: RESPONSE - 0x686 0x62f18000000000000000000000
+ISO-TP: REQUEST - 0x6a6 0x22f181
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18100000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f182
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18200000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f183
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18300000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f184
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18400000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f185
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18500000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f186
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18600000000
+CAN-RX: 0x686 - 0x0462f18603
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x62f18603
+ISO-TP: REQUEST - 0x6a6 0x22f187
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18700000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f188
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18800000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f189
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18900000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f18a
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18a00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f18b
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18b00000000
+CAN-RX: 0x686 - 0x0662f18b060321
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x62f18b060321
+ISO-TP: REQUEST - 0x6a6 0x22f18c
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18c00000000
+CAN-RX: 0x686 - 0x100f62f18c323130
+ISO-TP: RX - first frame - 0x686 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6a6
+CAN-TX: 0x6a6 - 0x3000000000000000
+CAN-RX: 0x686 - 0x2133303630363231
+CAN-RX: 0x686 - 0x223030
+ISO-TP: RX - consecutive frame - 0x686 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x686 idx=2 done=True
+ISO-TP: RESPONSE - 0x686 0x62f18c323130333036303632313030
+ISO-TP: REQUEST - 0x6a6 0x22f18d
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18d00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f18e
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f18e00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f190
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19000000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f191
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19100000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f192
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19200000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f193
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19300000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f194
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19400000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f195
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19500000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f196
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19600000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f197
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19700000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f198
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19800000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f199
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19900000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19a
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19a00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19b
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19b00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19c
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19c00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19d
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19d00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19e
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19e00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+ISO-TP: REQUEST - 0x6a6 0x22f19f
+ISO-TP: TX - single frame - 0x6a6
+CAN-TX: 0x6a6 - 0x0322f19f00000000
+CAN-RX: 0x686 - 0x037f2231
+ISO-TP: RX - single frame - 0x686 idx=0 done=True
+ISO-TP: RESPONSE - 0x686 0x7f2231
+0x6a6, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.34s/it]
+
+
+*** Results for address 0x6A6 ***
+
+
+0xF180 BOOT_SOFTWARE_IDENTIFICATION: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
+0xF18B ECU_MANUFACTURING_DATE: b'\x06\x03!'
+0xF18C ECU_SERIAL_NUMBER: b'210306062100'
+
+
+## MSB
+
+python panda/examples/query_fw_versions.py --addr 6b4 --bus 0 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6b4, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6b4 0x3e00
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x023e000000000000
+CAN-RX: 0x694 - 0x027e00
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7e00
+ISO-TP: REQUEST - 0x6b4 0x1001
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0210010000000000
+CAN-RX: 0x694 - 0x06500100c80014
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x500100c80014
+ISO-TP: REQUEST - 0x6b4 0x1003
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0210030000000000
+CAN-RX: 0x694 - 0x06500300c80014
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x500300c80014
+ISO-TP: REQUEST - 0x6b4 0x22f180
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18000000000
+CAN-RX: 0x694 - 0x101062f180533930
+ISO-TP: RX - first frame - 0x694 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b4
+CAN-TX: 0x6b4 - 0x3000000000000000
+CAN-RX: 0x694 - 0x2143303539323031
+ISO-TP: RX - consecutive frame - 0x694 idx=1 done=False
+CAN-RX: 0x694 - 0x22303236
+ISO-TP: RX - consecutive frame - 0x694 idx=2 done=True
+ISO-TP: RESPONSE - 0x694 0x62f18053393043303539323031303236
+ISO-TP: REQUEST - 0x6b4 0x22f181
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18100000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f182
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18200000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f183
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18300000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f184
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18400000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f185
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18500000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f186
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18600000000
+CAN-RX: 0x694 - 0x0462f18603
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x62f18603
+ISO-TP: REQUEST - 0x6b4 0x22f187
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18700000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f188
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18800000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f189
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18900000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f18a
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18a00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f18b
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18b00000000
+CAN-RX: 0x694 - 0x0662f18b110121
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x62f18b110121
+ISO-TP: REQUEST - 0x6b4 0x22f18c
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18c00000000
+CAN-RX: 0x694 - 0x100f62f18c353231
+ISO-TP: RX - first frame - 0x694 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b4
+CAN-TX: 0x6b4 - 0x3000000000000000
+CAN-RX: 0x694 - 0x2130323139303038
+CAN-RX: 0x694 - 0x223630
+ISO-TP: RX - consecutive frame - 0x694 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x694 idx=2 done=True
+ISO-TP: RESPONSE - 0x694 0x62f18c353231303231393030383630
+ISO-TP: REQUEST - 0x6b4 0x22f18d
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18d00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f18e
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f18e00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f190
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19000000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f191
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19100000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f192
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19200000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f193
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19300000000
+CAN-RX: 0x694 - 0x101462f193383130
+ISO-TP: RX - first frame - 0x694 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b4
+CAN-TX: 0x6b4 - 0x3000000000000000
+CAN-RX: 0x694 - 0x213232312d303030
+CAN-RX: 0x694 - 0x22383056312e3120
+ISO-TP: RX - consecutive frame - 0x694 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x694 idx=2 done=True
+ISO-TP: RESPONSE - 0x694 0x62f1933831303232312d303030383056312e3120
+ISO-TP: REQUEST - 0x6b4 0x22f194
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19400000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f195
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19500000000
+CAN-RX: 0x694 - 0x101462f195413042
+ISO-TP: RX - first frame - 0x694 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6b4
+CAN-TX: 0x6b4 - 0x3000000000000000
+CAN-RX: 0x694 - 0x214d55433035394b
+CAN-RX: 0x694 - 0x2233364356323000
+ISO-TP: RX - consecutive frame - 0x694 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x694 idx=2 done=True
+ISO-TP: RESPONSE - 0x694 0x62f1954130424d55433035394b33364356323000
+ISO-TP: REQUEST - 0x6b4 0x22f196
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19600000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f197
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19700000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f198
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19800000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f199
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19900000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19a
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19a00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19b
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19b00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19c
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19c00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19d
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19d00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19e
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19e00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+ISO-TP: REQUEST - 0x6b4 0x22f19f
+ISO-TP: TX - single frame - 0x6b4
+CAN-TX: 0x6b4 - 0x0322f19f00000000
+CAN-RX: 0x694 - 0x037f2231
+ISO-TP: RX - single frame - 0x694 idx=0 done=True
+ISO-TP: RESPONSE - 0x694 0x7f2231
+0x6b4, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.58s/it]
+
+
+*** Results for address 0x6B4 ***
+
+
+0xF180 BOOT_SOFTWARE_IDENTIFICATION: b'S90C059201026'
+0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
+0xF18B ECU_MANUFACTURING_DATE: b'\x11\x01!'
+0xF18C ECU_SERIAL_NUMBER: b'521021900860'
+0xF193 SYSTEM_SUPPLIER_ECU_HARDWARE_VERSION_NUMBER: b'810221-00080V1.1 '
+0xF195 SYSTEM_SUPPLIER_ECU_SOFTWARE_VERSION_NUMBER: b'A0BMUC059K36CV20\x00'
+
+## VCU
+
+python panda/examples/query_fw_versions.py --addr 6a2 --bus 0 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6a2, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6a2 0x3e00
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x023e000000000000
+CAN-RX: 0x682 - 0x027e00
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7e00
+ISO-TP: REQUEST - 0x6a2 0x1001
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0210010000000000
+CAN-RX: 0x682 - 0x06500100c80014
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x500100c80014
+ISO-TP: REQUEST - 0x6a2 0x1003
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0210030000000000
+CAN-RX: 0x682 - 0x06500300c80014
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x500300c80014
+ISO-TP: REQUEST - 0x6a2 0x22f180
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18000000000
+CAN-RX: 0x682 - 0x102762f180564538
+ISO-TP: RX - first frame - 0x682 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6a2
+CAN-TX: 0x6a2 - 0x3000000000000000
+CAN-RX: 0x682 - 0x21305f4c5f32375f
+ISO-TP: RX - consecutive frame - 0x682 idx=1 done=False
+CAN-RX: 0x682 - 0x2230392d344d2020
+ISO-TP: RX - consecutive frame - 0x682 idx=2 done=False
+CAN-RX: 0x682 - 0x2320202056453830
+ISO-TP: RX - consecutive frame - 0x682 idx=3 done=False
+CAN-RX: 0x682 - 0x242d534552202020
+ISO-TP: RX - consecutive frame - 0x682 idx=4 done=False
+CAN-RX: 0x682 - 0x252020202020
+ISO-TP: RX - consecutive frame - 0x682 idx=5 done=True
+ISO-TP: RESPONSE - 0x682 0x62f180564538305f4c5f32375f30392d344d2020202020564538302d5345522020202020202020
+ISO-TP: REQUEST - 0x6a2 0x22f181
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18100000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f182
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18200000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f183
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18300000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f184
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18400000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f185
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18500000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f186
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18600000000
+CAN-RX: 0x682 - 0x0462f18603
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x62f18603
+ISO-TP: REQUEST - 0x6a2 0x22f187
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18700000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f188
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18800000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f189
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18900000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f18a
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18a00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f18b
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18b00000000
+CAN-RX: 0x682 - 0x0662f18b170521
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x62f18b170521
+ISO-TP: REQUEST - 0x6a2 0x22f18c
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18c00000000
+CAN-RX: 0x682 - 0x100d62f18c393231
+ISO-TP: RX - first frame - 0x682 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6a2
+CAN-TX: 0x6a2 - 0x3000000000000000
+CAN-RX: 0x682 - 0x2130313236393039
+ISO-TP: RX - consecutive frame - 0x682 idx=1 done=True
+ISO-TP: RESPONSE - 0x682 0x62f18c39323130313236393039
+ISO-TP: REQUEST - 0x6a2 0x22f18d
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18d00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f18e
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f18e00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f190
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19000000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f191
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19100000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f192
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19200000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f193
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19300000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f194
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19400000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f195
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19500000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f196
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19600000000
+CAN-RX: 0x682 - 0x101362f196484f4d
+ISO-TP: RX - first frame - 0x682 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6a2
+CAN-TX: 0x6a2 - 0x3000000000000000
+CAN-RX: 0x682 - 0x212d303030343532
+ISO-TP: RX - consecutive frame - 0x682 idx=1 done=False
+CAN-RX: 0x682 - 0x22000000000000
+ISO-TP: RX - consecutive frame - 0x682 idx=2 done=True
+ISO-TP: RESPONSE - 0x682 0x62f196484f4d2d303030343532000000000000
+ISO-TP: REQUEST - 0x6a2 0x22f197
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19700000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f198
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19800000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f199
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19900000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19a
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19a00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19b
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19b00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19c
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19c00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19d
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19d00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19e
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19e00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+ISO-TP: REQUEST - 0x6a2 0x22f19f
+ISO-TP: TX - single frame - 0x6a2
+CAN-TX: 0x6a2 - 0x0322f19f00000000
+CAN-RX: 0x682 - 0x037f2231
+ISO-TP: RX - single frame - 0x682 idx=0 done=True
+ISO-TP: RESPONSE - 0x682 0x7f2231
+0x6a2, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.32s/it]
+
+
+*** Results for address 0x6A2 ***
+
+
+0xF180 BOOT_SOFTWARE_IDENTIFICATION: b'VE80_L_27_09-4M     VE80-SER        '
+0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
+0xF18B ECU_MANUFACTURING_DATE: b'\x17\x05!'
+0xF18C ECU_SERIAL_NUMBER: b'9210126909'
+0xF196 EXHAUST_REGULATION_OR_TYPE_APPROVAL_NUMBER: b'HOM-000452\x00\x00\x00\x00\x00\x00'
+
+## ABRASR (Dash error on query)
+
+python panda/examples/query_fw_versions.py --addr 6ad --bus 0 --rxoffset -20 --no-obd --debug
+INFO: connecting to panda 020026000151323431333839
+querying addresses ...
+0x6ad, None:   0%|                                                                                                               | 0/1 [00:00<?, ?it/s]ISO-TP: REQUEST - 0x6ad 0x3e00
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x023e000000000000
+CAN-RX: 0x68d - 0x027e00
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7e00
+ISO-TP: REQUEST - 0x6ad 0x1001
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0210010000000000
+CAN-RX: 0x68d - 0x06500100c80014
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x500100c80014
+ISO-TP: REQUEST - 0x6ad 0x1003
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0210030000000000
+CAN-RX: 0x68d - 0x037f1078
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f1078
+UDS-RX: response pending
+CAN-RX: 0x68d - 0x06500300c80014
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x500300c80014
+ISO-TP: REQUEST - 0x6ad 0x22f180
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18000000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f181
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18100000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f182
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18200000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f183
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18300000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f184
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18400000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f185
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18500000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f186
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18600000000
+CAN-RX: 0x68d - 0x0462f18603
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x62f18603
+ISO-TP: REQUEST - 0x6ad 0x22f187
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18700000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f188
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18800000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f189
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18900000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f18a
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18a00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f18b
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18b00000000
+CAN-RX: 0x68d - 0x0662f18b270521
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x62f18b270521
+ISO-TP: REQUEST - 0x6ad 0x22f18c
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18c00000000
+CAN-RX: 0x68d - 0x101562f18c303835
+ISO-TP: RX - first frame - 0x68d idx=0 done=False
+ISO-TP: TX - flow control continue - 0x6ad
+CAN-TX: 0x6ad - 0x3000000000000000
+CAN-RX: 0x68d - 0x2130393537303038
+CAN-RX: 0x68d - 0x2235373231303532
+ISO-TP: RX - consecutive frame - 0x68d idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x68d idx=2 done=False
+CAN-RX: 0x68d - 0x2337
+ISO-TP: RX - consecutive frame - 0x68d idx=3 done=True
+ISO-TP: RESPONSE - 0x68d 0x62f18c303835303935373030383537323130353237
+ISO-TP: REQUEST - 0x6ad 0x22f18d
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18d00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f18e
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f18e00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f190
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19000000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f191
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19100000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f192
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19200000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f193
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19300000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f194
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19400000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f195
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19500000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f196
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19600000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f197
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19700000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f198
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19800000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f199
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19900000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19a
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19a00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19b
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19b00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19c
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19c00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19d
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19d00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19e
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19e00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+ISO-TP: REQUEST - 0x6ad 0x22f19f
+ISO-TP: TX - single frame - 0x6ad
+CAN-TX: 0x6ad - 0x0322f19f00000000
+CAN-RX: 0x68d - 0x037f2231
+ISO-TP: RX - single frame - 0x68d idx=0 done=True
+ISO-TP: RESPONSE - 0x68d 0x7f2231
+0x6ad, None: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.46s/it]
+
+
+*** Results for address 0x6AD ***
+
+
+0xF186 ACTIVE_DIAGNOSTIC_SESSION: b'\x03'
+0xF18B ECU_MANUFACTURING_DATE: b"'\x05!"
+0xF18C ECU_SERIAL_NUMBER: b'085095700857210527'
 
