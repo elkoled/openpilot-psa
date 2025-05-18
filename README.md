@@ -11,6 +11,35 @@
 | VCU       | 0x6A2       | 0x682       | 0   | 9210126909               | 0x170521 (21.05.17) |              |
 | ABRASR    | 0x6AD       | 0x68D       | 0   | 085095700857210527       | 0x270521 (21.05.27) | DTC error on query    |
 
+## fw_versions fix:
+
+```
+def get_fw_versions_ordered(can_recv: CanRecvCallable, can_send: CanSendCallable, set_obd_multiplexing: ObdCallback, vin: str,
+                            ecu_rx_addrs: set[EcuAddrBusType], timeout: float = 0.1, num_pandas: int = 1, progress: bool = False) -> list[CarParams.CarFw]:
+  """Queries for FW versions ordering brands by likelihood, breaks when exact match is found"""
+
+  all_car_fw = []
+  brand_matches = get_brand_ecu_matches(ecu_rx_addrs)
+
+  # Sort brands by number of matching ECUs first, then percentage of matching ECUs in the database
+  # This allows brands with only one ECU to be queried first (e.g. Tesla)
+  for brand in sorted(brand_matches, key=lambda b: (brand_matches[b].count(True), brand_matches[b].count(True) / len(brand_matches[b])), reverse=True):
+    # Skip this brand if there are no matching present ECUs
+    ############## FIX ##############
+    # if True not in brand_matches[brand]:
+    #   continue
+    ############## FIX ##############
+
+    car_fw = get_fw_versions(can_recv, can_send, set_obd_multiplexing, query_brand=brand, timeout=timeout, num_pandas=num_pandas, progress=progress)
+    all_car_fw.extend(car_fw)
+
+    # If there is a match using this brand's FW alone, finish querying early
+    _, matches = match_fw_to_car(car_fw, vin, log=False)
+    if len(matches) == 1:
+      break
+
+  return all_car_fw
+```
 ## fw_versions
 ```
 python selfdrive/debug/car/fw_versions.py
