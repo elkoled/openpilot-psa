@@ -60,6 +60,7 @@ Car models in scope for the PSA openpilot port. If name and part number are pres
 | Peugeot 5008 II              | EMP2    | ?            | ?  | ?    | ?             | 2017 - ? |
 | Peugeot (e)3008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2023 - ? |
 | Peugeot (e)5008 III          | STLA Medium | ?            | ?  | ?    | ?             | 2024 - ? |
+| Peugeot Rifter               | EMP2  | BSI-EL3-CEM00 | D6 | 6.05 | 9830707680-00 | 2018 - ? |
 
 * (e) - Including electric variant
 
