@@ -13,6 +13,972 @@
 
 
 ## DEBUG prints fw_versions:
+
+# fw_query_3:
+```
+Waiting for CAN messages...
+starting python selfdrive.locationd.paramsd
+Getting VIN & FW versions
+Getting VIN & FW versions
+starting python selfdrive.locationd.lagd
+Setting OBD multiplexing to True
+waiting for modem to come up
+starting python selfdrive.controls.plannerd
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 0 success
+system/camerad/cameras/spectra.cc: get session: 0 0xB60200
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+starting python selfdrive.controls.radard
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+plannerd is waiting for CarParams
+radard is waiting for CarParams
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 0
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0xB60200 isp: 0xB40102 sensors: 0x2A0101 link: 0x760104
+system/camerad/cameras/spectra.cc: link control: 0
+updated is dead with 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 0
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 35) 0x23000d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 36) 0x24000e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 37) 0x25000f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 38) 0x260010 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 39) 0x270011 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 40) 0x280012 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 41) 0x290013 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 42) 0x2a0014 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 43) 0x2b0015 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 44) 0x2c0016 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 45) 0x2d0017 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 46) 0x2e0018 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 47) 0x2f0019 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 48) 0x30001a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 49) 0x31001b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 50) 0x32001c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 51) 0x33001d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 52) 0x34001e 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 0 from 1
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 1
+system/camerad/cameras/spectra.cc: -- Probing sensor 1
+OBD multiplexing set successfully
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+ISO-TP: REQUEST - 0x7df 0x22f190
+ISO-TP: REQUEST - 0x7df 0x22f190
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0322f19000000000
+CAN-TX: 0x7df - 0x0322f19000000000
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL version: "OpenGL ES 3.2 "
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL vendor: "Qualcomm"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL renderer: "Adreno (TM) 630"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL language version: "OpenGL ES GLSL ES 3.20"
+selfdrive/ui/qt/widgets/cameraview.cc: connecting to stream 0, was connected to 0
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 1 success
+system/camerad/cameras/spectra.cc: get session: 0 0xF40205
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+CAN-RX: 0x795 - 0x000000000090
+CAN-RX: 0x795 - 0x000000000090
+ISO-TP: RX - single frame - 0x795 idx=0 done=True
+ISO-TP: RX - single frame - 0x795 idx=0 done=True
+iso-tp query empty response: (1933, None)
+iso-tp query empty response: (1933, None)
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+ISO-TP: REQUEST - 0x7df 0x0902
+ISO-TP: REQUEST - 0x7df 0x0902
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0209020000000000
+CAN-TX: 0x7df - 0x0209020000000000
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-RX: 0x7e8 - 0x1014490201565233
+CAN-RX: 0x7e8 - 0x1014490201565233
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x7e0
+ISO-TP: TX - flow control continue - 0x7e0
+CAN-TX: 0x7e0 - 0x30000a0000000000
+CAN-TX: 0x7e0 - 0x30000a0000000000
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+system/camerad/cameras/spectra.cc: acquire isp dev
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+system/camerad/cameras/spectra.cc: opened csiphy for 1
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0xF40205 isp: 0x180107 sensors: 0x6C0106 link: 0xD0109
+system/camerad/cameras/spectra.cc: link control: 0
+system/loggerd/loggerd.cc: logging to /data/media/0/realdata/00000051--530555e1dd--0
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 1
+CAN-RX: 0x7e8 - 0x2254303634343339
+CAN-RX: 0x7e8 - 0x2254303634343339
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 61) 0x3d0025 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 62) 0x3e0026 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 63) 0x3f0027 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 64) 0x400028 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 65) 0x410029 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 66) 0x42002a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 67) 0x43002b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 68) 0x44002c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 69) 0x45002d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 70) 0x46002e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 71) 0x47002f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 72) 0x480030 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 73) 0x490031 0
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/spectra.cc: map buf req: (fd: 74) 0x4a0032 0
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/spectra.cc: map buf req: (fd: 75) 0x4b0033 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 76) 0x4c0034 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 77) 0x4d0035 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 78) 0x4e0036 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 1 from 1
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 2
+system/camerad/cameras/spectra.cc: -- Probing sensor 2
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+got vin with request=b'\t\x02'
+got vin with request=b'\t\x02'
+system/loggerd/loggerd.cc: large volume of 'logMessage' messages
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 2 success
+system/camerad/cameras/spectra.cc: get session: 0 0x9C020A
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/camerad/cameras/spectra.cc: acquire isp dev
+micd stream started: stream.samplerate=44100.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+system/camerad/cameras/spectra.cc: acquire icp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 2
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x9C020A isp: 0x83010C sensors: 0xC2010B link: 0x28010F
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: start icp: 0
+system/camerad/cameras/spectra.cc: camera init 2
+soundd stream started: stream.samplerate=48000.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+system/camerad/cameras/camera_common.cc: allocated 18 CL buffers
+Setting OBD multiplexing to False
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 88) 0x580043 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 106) 0x6a0044 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 89) 0x590045 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 107) 0x6b0046 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 90) 0x5a0047 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 108) 0x6c0048 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 91) 0x5b0049 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 109) 0x6d004a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 92) 0x5c004b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 110) 0x6e004c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 93) 0x5d004d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 111) 0x6f004e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 94) 0x5e004f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 112) 0x700050 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 95) 0x5f0051 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 113) 0x710052 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 96) 0x600053 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 114) 0x720054 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 97) 0x610055 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 115) 0x730056 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 98) 0x620057 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 116) 0x740058 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 99) 0x630059 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 117) 0x75005a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 100) 0x64005b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 118) 0x76005c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 101) 0x65005d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 119) 0x77005e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 102) 0x66005f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 120) 0x780060 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 103) 0x670061 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 121) 0x790062 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 104) 0x680063 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 122) 0x7a0064 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 105) 0x690065 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 123) 0x7b0066 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 2 from 1
+system/camerad/cameras/spectra.cc: flushed bps: 0
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/camera_qcom2.cc: -- Starting devices
+system/camerad/cameras/spectra.cc: starting sensor 0
+Starting listener for: camerad
+system/camerad/cameras/spectra.cc: starting sensor 1
+system/camerad/cameras/spectra.cc: starting sensor 2
+system/camerad/cameras/camera_qcom2.cc: -- Dequeueing Video events
+system/loggerd/encoderd.cc: encoder road_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 34
+system/loggerd/encoderd.cc: encoder driver_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 4
+system/loggerd/encoderd.cc: encoder wide_road_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 5
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+OBD multiplexing set successfully
+models loaded, modeld starting
+vision stream set up, main_wide_camera: False, use_extra_client: True
+connected main cam with buffer size: 4804608 (1928 x 1208)
+connected extra cam with buffer size: 4804608 (1928 x 1208)
+common/clutil.cc: platform[0] CL_PLATFORM_NAME: QUALCOMM Snapdragon(TM)
+common/clutil.cc: vendor: QUALCOMM
+common/clutil.cc: platform version: OpenCL 2.0 QUALCOMM build: commit #f437276 changeid # Date: 12/06/18 Thu Local Branch:  Remote Branch: 
+common/clutil.cc: profile: FULL_PROFILE
+common/clutil.cc: extensions:  
+common/clutil.cc: name: QUALCOMM Adreno(TM)
+common/clutil.cc: device version: OpenCL 2.0 Adreno(TM) 630
+common/clutil.cc: max work group size: 1024
+common/clutil.cc: type = 4, CL_DEVICE_TYPE_GPU
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 78
+system/camerad/cameras/spectra.cc: camera 0 synced on frame_id_offset 5 timestamp 1509223012270
+system/camerad/cameras/spectra.cc: camera 1 synced on frame_id_offset 5 timestamp 1509223022110
+system/camerad/cameras/spectra.cc: camera 2 synced on frame_id_offset 5 timestamp 1509223031637
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 177408
+VIN VR3UHZKXZMT064439
+VIN VR3UHZKXZMT064439
+system/loggerd/encoderd.cc: camera 1 encoder ready
+system/loggerd/encoderd.cc: camera 2 encoder ready
+system/loggerd/encoderd.cc: camera 0 encoder ready
+selfdrive/ui/qt/widgets/cameraview.cc: Drawing same frame twice 0
+system/loggerd/encoderd.cc: camera 1 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 2 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 0 waiting for frame 2, cur 1
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/loggerd/loggerd.cc: driverEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000051--530555e1dd--0/dcamera.hevc remuxing:0
+system/loggerd/loggerd.cc: qRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000051--530555e1dd--0/qcamera.ts remuxing:1
+system/loggerd/loggerd.cc: wideRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000051--530555e1dd--0/ecamera.hevc remuxing:0
+system/loggerd/loggerd.cc: roadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000051--530555e1dd--0/fcamera.hevc remuxing:0
+models loaded, dmonitoringmodeld starting
+connecting to driver stream
+connected with buffer size: 4804608
+quectel setup done
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {773: 7, 770: 7, 840: 8, 1042: 8, 973: 8, 845: 8, 941: 8, 757: 7, 909: 8, 520: 8, 610: 1, 841: 8, 1298: 4, 1390: 6, 1128: 8, 1257: 4, 1394: 8, 1416: 8, 781: 8, 1037: 8, 1304: 4, 1122: 4, 1272: 5, 749: 7, 1101: 8, 850: 2, 1006: 4, 1074: 8, 1186: 2, 1161: 8, 1010: 8, 877: 4, 1086: 6, 1099: 8, 1118: 6, 1150: 8, 1522: 5, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1486: 3, 1173: 4, 1278: 3, 1038: 5, 1554: 8, 166: 2, 936: 6, 1430: 4, 1134: 2, 1422: 8, 1326: 8, 1387: 4, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1515: 8, 1230: 8, 1458: 8, 1102: 3}, 1: {632: 8, 760: 7, 792: 5, 525: 8, 461: 3, 717: 1, 845: 8, 909: 8, 514: 5, 546: 5, 664: 6, 690: 1, 1069: 4, 1170: 6, 728: 7, 946: 2, 1294: 8, 1400: 6, 813: 8, 758: 8, 1032: 6, 694: 8, 962: 2, 1074: 8, 1160: 8, 1218: 4, 1378: 4, 1426: 8, 1106: 6, 914: 2, 1166: 7, 1330: 5, 1266: 8, 1070: 6, 1270: 5, 1554: 8, 1517: 3, 1393: 1, 1518: 4, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8, 1490: 4}, 2: {773: 7, 770: 7, 840: 8, 1042: 8, 973: 8, 845: 8, 941: 8, 757: 7, 909: 8, 520: 8, 610: 1, 841: 8, 1298: 4, 1390: 6, 1128: 8, 1257: 4, 1394: 8, 1416: 8, 781: 8, 1037: 8, 1304: 4, 1122: 4, 1272: 5, 749: 7, 1101: 8, 850: 2, 1006: 4, 1074: 8, 1186: 2, 1161: 8, 1010: 8, 877: 4, 1086: 6, 1099: 8, 1118: 6, 1150: 8, 1522: 5, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1486: 3, 1173: 4, 1278: 3, 1038: 5, 1554: 8, 166: 2, 936: 6, 1430: 4, 1134: 2, 1422: 8, 1326: 8, 1387: 4, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1515: 8, 1230: 8, 1458: 8, 1102: 3}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.0220647389999158}
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {773: 7, 770: 7, 840: 8, 1042: 8, 973: 8, 845: 8, 941: 8, 757: 7, 909: 8, 520: 8, 610: 1, 841: 8, 1298: 4, 1390: 6, 1128: 8, 1257: 4, 1394: 8, 1416: 8, 781: 8, 1037: 8, 1304: 4, 1122: 4, 1272: 5, 749: 7, 1101: 8, 850: 2, 1006: 4, 1074: 8, 1186: 2, 1161: 8, 1010: 8, 877: 4, 1086: 6, 1099: 8, 1118: 6, 1150: 8, 1522: 5, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1486: 3, 1173: 4, 1278: 3, 1038: 5, 1554: 8, 166: 2, 936: 6, 1430: 4, 1134: 2, 1422: 8, 1326: 8, 1387: 4, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1515: 8, 1230: 8, 1458: 8, 1102: 3}, 1: {632: 8, 760: 7, 792: 5, 525: 8, 461: 3, 717: 1, 845: 8, 909: 8, 514: 5, 546: 5, 664: 6, 690: 1, 1069: 4, 1170: 6, 728: 7, 946: 2, 1294: 8, 1400: 6, 813: 8, 758: 8, 1032: 6, 694: 8, 962: 2, 1074: 8, 1160: 8, 1218: 4, 1378: 4, 1426: 8, 1106: 6, 914: 2, 1166: 7, 1330: 5, 1266: 8, 1070: 6, 1270: 5, 1554: 8, 1517: 3, 1393: 1, 1518: 4, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8, 1490: 4}, 2: {773: 7, 770: 7, 840: 8, 1042: 8, 973: 8, 845: 8, 941: 8, 757: 7, 909: 8, 520: 8, 610: 1, 841: 8, 1298: 4, 1390: 6, 1128: 8, 1257: 4, 1394: 8, 1416: 8, 781: 8, 1037: 8, 1304: 4, 1122: 4, 1272: 5, 749: 7, 1101: 8, 850: 2, 1006: 4, 1074: 8, 1186: 2, 1161: 8, 1010: 8, 877: 4, 1086: 6, 1099: 8, 1118: 6, 1150: 8, 1522: 5, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1486: 3, 1173: 4, 1278: 3, 1038: 5, 1554: 8, 166: 2, 936: 6, 1430: 4, 1134: 2, 1422: 8, 1326: 8, 1387: 4, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1515: 8, 1230: 8, 1458: 8, 1102: 3}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.0220647389999158}
+selfdrived got CarParams
+modeld got CarParams: psa
+skipping model eval. Dropped 20 frames
+selfdrive/pandad/panda_safety.cc: Finished FW query, Waiting for params to set safety model
+plannerd got CarParams: psa
+restored torque params from cache
+```
+# fw_query_2
+```
+Waiting for CAN messages...
+starting python selfdrive.locationd.paramsd
+starting python selfdrive.locationd.lagd
+Getting VIN & FW versions
+Getting VIN & FW versions
+Setting OBD multiplexing to True
+waiting for modem to come up
+starting python selfdrive.controls.plannerd
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 0 success
+system/camerad/cameras/spectra.cc: get session: 0 0x170200
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+starting python selfdrive.controls.radard
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+plannerd is waiting for CarParams
+radard is waiting for CarParams
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 0
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x170200 isp: 0x540102 sensors: 0x740101 link: 0x440104
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+updated is dead with 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 0
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 35) 0x23000d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 36) 0x24000e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 37) 0x25000f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 38) 0x260010 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 39) 0x270011 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 40) 0x280012 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 41) 0x290013 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 42) 0x2a0014 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 43) 0x2b0015 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 44) 0x2c0016 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 45) 0x2d0017 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 46) 0x2e0018 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 47) 0x2f0019 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 48) 0x30001a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 49) 0x31001b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 50) 0x32001c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 51) 0x33001d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 52) 0x34001e 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 0 from 1
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 1
+system/camerad/cameras/spectra.cc: -- Probing sensor 1
+OBD multiplexing set successfully
+ISO-TP: REQUEST - 0x7df 0x22f190
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+ISO-TP: REQUEST - 0x7df 0x22f190
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0322f19000000000
+CAN-TX: 0x7df - 0x0322f19000000000
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 1 success
+system/camerad/cameras/spectra.cc: get session: 0 0x550205
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL version: "OpenGL ES 3.2 "
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL vendor: "Qualcomm"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL renderer: "Adreno (TM) 630"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL language version: "OpenGL ES GLSL ES 3.20"
+selfdrive/ui/qt/widgets/cameraview.cc: connecting to stream 0, was connected to 0
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+ISO-TP: REQUEST - 0x7df 0x0902
+ISO-TP: REQUEST - 0x7df 0x0902
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0209020000000000
+CAN-TX: 0x7df - 0x0209020000000000
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-RX: 0x7e8 - 0x1014490201565233
+CAN-RX: 0x7e8 - 0x1014490201565233
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x7e0
+ISO-TP: TX - flow control continue - 0x7e0
+CAN-TX: 0x7e0 - 0x30000a0000000000
+CAN-TX: 0x7e0 - 0x30000a0000000000
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+system/loggerd/loggerd.cc: logging to /data/media/0/realdata/00000052--94ddb36b0a--0
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 1
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x550205 isp: 0x20107 sensors: 0xEF0106 link: 0x150109
+system/camerad/cameras/spectra.cc: link control: 0
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 1
+CAN-RX: 0x7e8 - 0x2254303634343339
+CAN-RX: 0x7e8 - 0x2254303634343339
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 61) 0x3d0025 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 62) 0x3e0026 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 63) 0x3f0027 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 64) 0x400028 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 65) 0x410029 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 66) 0x42002a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 67) 0x43002b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 68) 0x44002c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 69) 0x45002d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 70) 0x46002e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 71) 0x47002f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 72) 0x480030 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 73) 0x490031 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 74) 0x4a0032 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 75) 0x4b0033 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 76) 0x4c0034 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 77) 0x4d0035 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 78) 0x4e0036 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 1 from 1
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 2
+system/camerad/cameras/spectra.cc: -- Probing sensor 2
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+got vin with request=b'\t\x02'
+got vin with request=b'\t\x02'
+system/loggerd/loggerd.cc: large volume of 'logMessage' messages
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 2 success
+system/camerad/cameras/spectra.cc: get session: 0 0xDF020A
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: acquire icp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 2
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0xDF020A isp: 0x2010C sensors: 0x6C010B link: 0x8010F
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: start icp: 0
+system/camerad/cameras/spectra.cc: camera init 2
+soundd stream started: stream.samplerate=48000.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+system/camerad/cameras/camera_common.cc: allocated 18 CL buffers
+micd stream started: stream.samplerate=44100.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+Setting OBD multiplexing to False
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 88) 0x580043 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 106) 0x6a0044 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 89) 0x590045 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 107) 0x6b0046 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 90) 0x5a0047 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 108) 0x6c0048 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 91) 0x5b0049 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 109) 0x6d004a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 92) 0x5c004b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 110) 0x6e004c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 93) 0x5d004d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 111) 0x6f004e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 94) 0x5e004f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 112) 0x700050 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 95) 0x5f0051 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 113) 0x710052 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 96) 0x600053 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 114) 0x720054 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 97) 0x610055 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 115) 0x730056 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 98) 0x620057 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 116) 0x740058 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 99) 0x630059 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 117) 0x75005a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 100) 0x64005b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 118) 0x76005c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 101) 0x65005d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 119) 0x77005e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 102) 0x66005f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 120) 0x780060 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 103) 0x670061 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 121) 0x790062 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 104) 0x680063 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 122) 0x7a0064 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 105) 0x690065 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 123) 0x7b0066 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 2 from 1
+system/camerad/cameras/spectra.cc: flushed bps: 0
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/camera_qcom2.cc: -- Starting devices
+system/camerad/cameras/spectra.cc: starting sensor 0
+Starting listener for: camerad
+system/camerad/cameras/spectra.cc: starting sensor 1
+system/camerad/cameras/spectra.cc: starting sensor 2
+system/camerad/cameras/camera_qcom2.cc: -- Dequeueing Video events
+system/loggerd/encoderd.cc: encoder road_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 34
+system/loggerd/encoderd.cc: encoder driver_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 4
+system/loggerd/encoderd.cc: encoder wide_road_cam_encoder init 1928x1208
+OBD multiplexing set successfully
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 5
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+models loaded, modeld starting
+vision stream set up, main_wide_camera: False, use_extra_client: True
+connected main cam with buffer size: 4804608 (1928 x 1208)
+connected extra cam with buffer size: 4804608 (1928 x 1208)
+common/clutil.cc: platform[0] CL_PLATFORM_NAME: QUALCOMM Snapdragon(TM)
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 84
+common/clutil.cc: vendor: QUALCOMM
+common/clutil.cc: platform version: OpenCL 2.0 QUALCOMM build: commit #f437276 changeid # Date: 12/06/18 Thu Local Branch:  Remote Branch: 
+common/clutil.cc: profile: FULL_PROFILE
+common/clutil.cc: extensions:  
+common/clutil.cc: name: QUALCOMM Adreno(TM)
+common/clutil.cc: device version: OpenCL 2.0 Adreno(TM) 630
+common/clutil.cc: max work group size: 1024
+common/clutil.cc: type = 4, CL_DEVICE_TYPE_GPU
+system/camerad/cameras/spectra.cc: camera 0 synced on frame_id_offset 5 timestamp 1700989283276
+system/camerad/cameras/spectra.cc: camera 1 synced on frame_id_offset 5 timestamp 1700989331644
+system/camerad/cameras/spectra.cc: camera 2 synced on frame_id_offset 5 timestamp 1700989296917
+VIN VR3UHZKXZMT064439
+VIN VR3UHZKXZMT064439
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 177408
+system/loggerd/encoderd.cc: camera 1 encoder ready
+system/loggerd/encoderd.cc: camera 2 encoder ready
+system/loggerd/encoderd.cc: camera 0 encoder ready
+selfdrive/ui/qt/widgets/cameraview.cc: Drawing same frame twice 0
+system/loggerd/encoderd.cc: camera 1 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 2 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 0 waiting for frame 2, cur 1
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/loggerd/loggerd.cc: driverEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000052--94ddb36b0a--0/dcamera.hevc remuxing:0
+system/loggerd/loggerd.cc: qRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000052--94ddb36b0a--0/qcamera.ts remuxing:1
+system/loggerd/loggerd.cc: wideRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000052--94ddb36b0a--0/ecamera.hevc remuxing:0
+system/loggerd/loggerd.cc: roadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000052--94ddb36b0a--0/fcamera.hevc remuxing:0
+quectel setup done
+models loaded, dmonitoringmodeld starting
+connecting to driver stream
+connected with buffer size: 4804608
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {1394: 8, 1037: 8, 1128: 8, 757: 7, 1257: 4, 1416: 8, 820: 8, 520: 8, 610: 1, 841: 8, 1304: 4, 773: 7, 973: 8, 845: 8, 941: 8, 749: 7, 770: 7, 840: 8, 1101: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 1186: 2, 781: 8, 1010: 8, 877: 4, 1086: 6, 1118: 6, 1150: 8, 1099: 8, 1458: 8, 1522: 5, 909: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1042: 8, 1515: 8, 1161: 8, 1430: 4, 1298: 4, 1278: 3, 1173: 4, 1102: 3, 1038: 5, 1554: 8, 166: 2, 1390: 6, 1134: 2, 1387: 4, 1486: 3, 936: 6, 1422: 8, 1326: 8, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8}, 1: {946: 2, 1294: 8, 1393: 1, 632: 8, 728: 7, 1400: 6, 694: 8, 514: 5, 546: 5, 1032: 6, 525: 8, 461: 3, 717: 1, 845: 8, 760: 7, 792: 5, 962: 2, 1074: 8, 664: 6, 690: 1, 1160: 8, 758: 8, 813: 8, 1426: 8, 1218: 4, 1378: 4, 1106: 6, 909: 8, 914: 2, 1069: 4, 1166: 7, 1330: 5, 1266: 8, 1270: 5, 1070: 6, 1554: 8, 1490: 4, 1170: 6, 1517: 3, 1518: 4, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8}, 2: {1394: 8, 1037: 8, 1128: 8, 757: 7, 1257: 4, 1416: 8, 820: 8, 520: 8, 610: 1, 841: 8, 1304: 4, 773: 7, 973: 8, 845: 8, 941: 8, 749: 7, 770: 7, 840: 8, 1101: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 1186: 2, 781: 8, 1010: 8, 877: 4, 1086: 6, 1118: 6, 1150: 8, 1099: 8, 1458: 8, 1522: 5, 909: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1042: 8, 1515: 8, 1161: 8, 1430: 4, 1298: 4, 1278: 3, 1173: 4, 1102: 3, 1038: 5, 1554: 8, 166: 2, 1390: 6, 1134: 2, 1387: 4, 1486: 3, 936: 6, 1422: 8, 1326: 8, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.007032922999997}
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {1394: 8, 1037: 8, 1128: 8, 757: 7, 1257: 4, 1416: 8, 820: 8, 520: 8, 610: 1, 841: 8, 1304: 4, 773: 7, 973: 8, 845: 8, 941: 8, 749: 7, 770: 7, 840: 8, 1101: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 1186: 2, 781: 8, 1010: 8, 877: 4, 1086: 6, 1118: 6, 1150: 8, 1099: 8, 1458: 8, 1522: 5, 909: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1042: 8, 1515: 8, 1161: 8, 1430: 4, 1298: 4, 1278: 3, 1173: 4, 1102: 3, 1038: 5, 1554: 8, 166: 2, 1390: 6, 1134: 2, 1387: 4, 1486: 3, 936: 6, 1422: 8, 1326: 8, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8}, 1: {946: 2, 1294: 8, 1393: 1, 632: 8, 728: 7, 1400: 6, 694: 8, 514: 5, 546: 5, 1032: 6, 525: 8, 461: 3, 717: 1, 845: 8, 760: 7, 792: 5, 962: 2, 1074: 8, 664: 6, 690: 1, 1160: 8, 758: 8, 813: 8, 1426: 8, 1218: 4, 1378: 4, 1106: 6, 909: 8, 914: 2, 1069: 4, 1166: 7, 1330: 5, 1266: 8, 1270: 5, 1070: 6, 1554: 8, 1490: 4, 1170: 6, 1517: 3, 1518: 4, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8}, 2: {1394: 8, 1037: 8, 1128: 8, 757: 7, 1257: 4, 1416: 8, 820: 8, 520: 8, 610: 1, 841: 8, 1304: 4, 773: 7, 973: 8, 845: 8, 941: 8, 749: 7, 770: 7, 840: 8, 1101: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 1186: 2, 781: 8, 1010: 8, 877: 4, 1086: 6, 1118: 6, 1150: 8, 1099: 8, 1458: 8, 1522: 5, 909: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1042: 8, 1515: 8, 1161: 8, 1430: 4, 1298: 4, 1278: 3, 1173: 4, 1102: 3, 1038: 5, 1554: 8, 166: 2, 1390: 6, 1134: 2, 1387: 4, 1486: 3, 936: 6, 1422: 8, 1326: 8, 1454: 5, 1483: 8, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.007032922999997}
+controlsd got CarParams
+modeld got CarParams: psa
+selfdrived got CarParams
+skipping model eval. Dropped 19 frames
+selfdrive/pandad/panda_safety.cc: Finished FW query, Waiting for params to set safety model
+plannerd got CarParams: psa
+restored torque params from cache
+radard got CarParams
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+skipping model eval. Dropped 2 frames
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+{"event": "selfdrived.initialized", "dt": 0.91, "timeout": false, "canValid": true, "invalid": ["alertDebug", "gpsLocation"], "not_alive": ["alertDebug", "gpsLocation"], "not_freq_ok": ["alertDebug", "gpsLocation"], "error": true}
+selfdrive/pandad/panda_safety.cc: got 448 bytes CarParams
+selfdrive/pandad/panda_safety.cc: Panda 0: setting safety model: 31, param: 0, alternative experience: 1
+selfdrive/pandad/pandad.cc: psa_init
+```
+
+# fw_query_1:
+```
+Waiting for CAN messages...
+starting python selfdrive.locationd.paramsd
+starting python selfdrive.locationd.lagd
+starting python selfdrive.controls.plannerd
+waiting for modem to come up
+starting python selfdrive.controls.radard
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned updated uploader statsd
+plannerd is waiting for CarParams
+radard is waiting for CarParams
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 0
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x2F0200 isp: 0xA50102 sensors: 0xAE0101 link: 0xF80104
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 0
+Getting VIN & FW versions
+Getting VIN & FW versions
+Setting OBD multiplexing to True
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 35) 0x23000d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 36) 0x24000e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 37) 0x25000f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 38) 0x260010 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 39) 0x270011 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 40) 0x280012 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 41) 0x290013 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 42) 0x2a0014 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 43) 0x2b0015 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 44) 0x2c0016 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 45) 0x2d0017 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 46) 0x2e0018 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 47) 0x2f0019 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 48) 0x30001a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 49) 0x31001b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 50) 0x32001c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 51) 0x33001d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 52) 0x34001e 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 0 from 1
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 1
+system/camerad/cameras/spectra.cc: -- Probing sensor 1
+updated is dead with 0
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 1 success
+system/camerad/cameras/spectra.cc: get session: 0 0x6D0205
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL version: "OpenGL ES 3.2 "
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL vendor: "Qualcomm"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL renderer: "Adreno (TM) 630"
+selfdrive/ui/qt/onroad/annotated_camera.cc: OpenGL language version: "OpenGL ES GLSL ES 3.20"
+selfdrive/ui/qt/widgets/cameraview.cc: connecting to stream 0, was connected to 0
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+OBD multiplexing set successfully
+ISO-TP: REQUEST - 0x7df 0x22f190
+ISO-TP: REQUEST - 0x7df 0x22f190
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0322f19000000000
+CAN-TX: 0x7df - 0x0322f19000000000
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: REQUEST - 0x18db33f1 0x22f190
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+CAN-TX: 0x18db33f1 - 0x0322f19000000000
+CAN-RX: 0x795 - 0x000000000090
+CAN-RX: 0x795 - 0x000000000090
+ISO-TP: RX - single frame - 0x795 idx=0 done=True
+ISO-TP: RX - single frame - 0x795 idx=0 done=True
+iso-tp query empty response: (1933, None)
+iso-tp query empty response: (1933, None)
+system/camerad/cameras/spectra.cc: acquire isp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 1
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x6D0205 isp: 0xDB0107 sensors: 0x9C0106 link: 0x810109
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: camera init 1
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 61) 0x3d0025 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 62) 0x3e0026 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 63) 0x3f0027 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 64) 0x400028 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 65) 0x410029 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 66) 0x42002a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 67) 0x43002b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 68) 0x44002c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 69) 0x45002d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 70) 0x46002e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 71) 0x47002f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 72) 0x480030 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 73) 0x490031 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 74) 0x4a0032 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 75) 0x4b0033 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 76) 0x4c0034 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 77) 0x4d0035 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 78) 0x4e0036 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 1 from 1
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/spectra.cc: opened sensor for 2
+system/camerad/cameras/spectra.cc: -- Probing sensor 2
+system/loggerd/loggerd.cc: logging to /data/media/0/realdata/00000054--bf648d5fd3--0
+system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+ISO-TP: REQUEST - 0x7df 0x0902
+ISO-TP: REQUEST - 0x7df 0x0902
+system/camerad/cameras/spectra.cc: probing the sensor: -1
+ISO-TP: TX - single frame - 0x7df
+ISO-TP: TX - single frame - 0x7df
+CAN-TX: 0x7df - 0x0209020000000000
+CAN-TX: 0x7df - 0x0209020000000000
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: REQUEST - 0x18db33f1 0x0902
+ISO-TP: TX - single frame - 0x18db33f1
+ISO-TP: TX - single frame - 0x18db33f1
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-TX: 0x18db33f1 - 0x0209020000000000
+CAN-RX: 0x7e8 - 0x1014490201565233
+CAN-RX: 0x7e8 - 0x1014490201565233
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: RX - first frame - 0x7e8 idx=0 done=False
+ISO-TP: TX - flow control continue - 0x7e0
+ISO-TP: TX - flow control continue - 0x7e0
+CAN-TX: 0x7e0 - 0x30000a0000000000
+CAN-TX: 0x7e0 - 0x30000a0000000000
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+system/loggerd/loggerd.cc: large volume of 'logMessage' messages
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+ISO-TP: RESPONSE - 0x7e8 0x490201565233
+CAN-RX: 0x78d - 0xb800000000000000
+CAN-RX: 0x78d - 0xb800000000000000
+Error processing UDS response: (1925, None)
+Traceback (most recent call last):
+  File "/data/openpilot/opendbc/car/isotp_parallel_query.py", line 107, in get_data
+    dat, rx_in_progress = msg.recv()
+                          ^^^^^^^^^^
+  File "/data/openpilot/opendbc/car/uds.py", line 451, in recv
+    frame_type = self._isotp_rx_next(msg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/openpilot/opendbc/car/uds.py", line 557, in _isotp_rx_next
+    raise Exception(f"isotp - rx: invalid frame type: {rx_data[0] >> 4}")
+Exception: isotp - rx: invalid frame type: 11
+Error processing UDS response: (1925, None)
+Traceback (most recent call last):
+  File "/data/openpilot/opendbc/car/isotp_parallel_query.py", line 107, in get_data
+    dat, rx_in_progress = msg.recv()
+                          ^^^^^^^^^^
+  File "/data/openpilot/opendbc/car/uds.py", line 451, in recv
+    frame_type = self._isotp_rx_next(msg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/openpilot/opendbc/car/uds.py", line 557, in _isotp_rx_next
+    raise Exception(f"isotp - rx: invalid frame type: {rx_data[0] >> 4}")
+Exception: isotp - rx: invalid frame type: 11
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+CAN-RX: 0x7e8 - 0x2155485a4b585a4d
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+ISO-TP: RX - consecutive frame - 0x7e8 idx=1 done=False
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d
+CAN-RX: 0x7e8 - 0x2254303634343339
+CAN-RX: 0x7e8 - 0x2254303634343339
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RX - consecutive frame - 0x7e8 idx=2 done=True
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+system/camerad/cameras/spectra.cc: probing the sensor: 0
+system/camerad/cameras/spectra.cc: -- Probing sensor 2 success
+system/camerad/cameras/spectra.cc: get session: 0 0x34020A
+system/camerad/cameras/spectra.cc: -- Accessing sensor
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+ISO-TP: RESPONSE - 0x7e8 0x49020156523355485a4b585a4d54303634343339
+got vin with request=b'\t\x02'
+got vin with request=b'\t\x02'
+system/camerad/cameras/spectra.cc: acquire sensor dev
+system/camerad/cameras/spectra.cc: -- Configuring sensor
+system/camerad/cameras/spectra.cc: acquire isp dev
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+micd stream started: stream.samplerate=44100.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+system/camerad/cameras/spectra.cc: acquire icp dev
+system/camerad/cameras/spectra.cc: opened csiphy for 2
+system/camerad/cameras/spectra.cc: acquire csiphy dev
+system/camerad/cameras/spectra.cc: -- Config CSI PHY
+system/camerad/cameras/spectra.cc: -- Link devices
+system/camerad/cameras/spectra.cc: link: 0 session: 0x34020A isp: 0x3F010C sensors: 0xEA010B link: 0x8D010F
+system/camerad/cameras/spectra.cc: link control: 0
+system/camerad/cameras/spectra.cc: start csiphy: 0
+system/camerad/cameras/spectra.cc: start isp: 0
+system/camerad/cameras/spectra.cc: start icp: 0
+system/camerad/cameras/spectra.cc: camera init 2
+system/camerad/cameras/camera_common.cc: allocated 18 CL buffers
+system/camerad/cameras/camera_common.cc: created 18 YUV vipc buffers with size 2048x1216
+system/camerad/cameras/spectra.cc: map buf req: (fd: 88) 0x580043 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 106) 0x6a0044 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 89) 0x590045 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 107) 0x6b0046 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 90) 0x5a0047 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 108) 0x6c0048 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 91) 0x5b0049 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 109) 0x6d004a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 92) 0x5c004b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 110) 0x6e004c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 93) 0x5d004d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 111) 0x6f004e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 94) 0x5e004f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 112) 0x700050 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 95) 0x5f0051 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 113) 0x710052 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 96) 0x600053 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 114) 0x720054 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 97) 0x610055 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 115) 0x730056 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 98) 0x620057 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 116) 0x740058 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 99) 0x630059 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 117) 0x75005a 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 100) 0x64005b 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 118) 0x76005c 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 101) 0x65005d 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 119) 0x77005e 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 102) 0x66005f 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 120) 0x780060 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 103) 0x670061 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 121) 0x790062 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 104) 0x680063 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 122) 0x7a0064 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 105) 0x690065 0
+system/camerad/cameras/spectra.cc: map buf req: (fd: 123) 0x7b0066 0
+system/camerad/cameras/spectra.cc: clearing and requeuing camera 2 from 1
+system/camerad/cameras/spectra.cc: flushed bps: 0
+system/camerad/cameras/spectra.cc: flushed all req: 100
+system/camerad/cameras/camera_qcom2.cc: -- Starting devices
+system/camerad/cameras/spectra.cc: starting sensor 0
+Starting listener for: camerad
+system/camerad/cameras/spectra.cc: starting sensor 1
+system/camerad/cameras/spectra.cc: starting sensor 2
+system/camerad/cameras/camera_qcom2.cc: -- Dequeueing Video events
+soundd stream started: stream.samplerate=48000.0 stream.channels=1 stream.dtype='float32' stream.device=31, stream.blocksize=4096
+system/loggerd/encoderd.cc: encoder road_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 34
+system/loggerd/encoderd.cc: encoder driver_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 4
+system/loggerd/encoderd.cc: encoder wide_road_cam_encoder init 1928x1208
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 5
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 2373632
+models loaded, modeld starting
+vision stream set up, main_wide_camera: False, use_extra_client: True
+connected main cam with buffer size: 4804608 (1928 x 1208)
+connected extra cam with buffer size: 4804608 (1928 x 1208)
+common/clutil.cc: platform[0] CL_PLATFORM_NAME: QUALCOMM Snapdragon(TM)
+common/clutil.cc: vendor: QUALCOMM
+common/clutil.cc: platform version: OpenCL 2.0 QUALCOMM build: commit #f437276 changeid # Date: 12/06/18 Thu Local Branch:  Remote Branch: 
+common/clutil.cc: profile: FULL_PROFILE
+common/clutil.cc: extensions:  
+common/clutil.cc: name: QUALCOMM Adreno(TM)
+common/clutil.cc: device version: OpenCL 2.0 Adreno(TM) 630
+common/clutil.cc: max work group size: 1024
+common/clutil.cc: type = 4, CL_DEVICE_TYPE_GPU
+system/loggerd/encoder/v4l_encoder.cc: opened encoder device msm_vidc_driver msm_vidc_venc = 78
+Setting OBD multiplexing to False
+system/camerad/cameras/spectra.cc: camera 0 synced on frame_id_offset 5 timestamp 1834839412734
+system/camerad/cameras/spectra.cc: camera 1 synced on frame_id_offset 5 timestamp 1834839423299
+system/camerad/cameras/spectra.cc: camera 2 synced on frame_id_offset 5 timestamp 1834839432824
+system/loggerd/encoder/v4l_encoder.cc: in buffer size 4804608, out buffer size 177408
+system/loggerd/encoderd.cc: camera 1 encoder ready
+system/loggerd/encoderd.cc: camera 2 encoder ready
+system/loggerd/encoderd.cc: camera 0 encoder ready
+selfdrive/ui/qt/widgets/cameraview.cc: Drawing same frame twice 0
+OBD multiplexing set successfully
+system/loggerd/encoderd.cc: camera 1 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 2 waiting for frame 2, cur 1
+system/loggerd/encoderd.cc: camera 0 waiting for frame 2, cur 1
+system/loggerd/loggerd.cc: driverEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000054--bf648d5fd3--0/dcamera.hevc remuxing:0
+system/loggerd/loggerd.cc: qRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000054--bf648d5fd3--0/qcamera.ts remuxing:1
+system/loggerd/loggerd.cc: wideRoadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000054--bf648d5fd3--0/ecamera.hevc remuxing:0
+system/loggerd/loggerd.cc: roadEncodeData: has encoderd offset 0
+system/loggerd/video_writer.cc: encoder_open /data/media/0/realdata/00000054--bf648d5fd3--0/fcamera.hevc remuxing:0
+VIN VR3UHZKXZMT064439
+VIN VR3UHZKXZMT064439
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+models loaded, dmonitoringmodeld starting
+connecting to driver stream
+connected with buffer size: 4804608
+quectel setup done
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {757: 7, 1257: 4, 1416: 8, 973: 8, 773: 7, 845: 8, 520: 8, 610: 1, 841: 8, 941: 8, 1304: 4, 909: 8, 770: 7, 840: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 781: 8, 1186: 2, 1037: 8, 1010: 8, 936: 6, 1128: 8, 1161: 8, 749: 7, 1101: 8, 1099: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1086: 6, 1118: 6, 1150: 8, 1042: 8, 877: 4, 1134: 2, 1298: 4, 1173: 4, 1422: 8, 1038: 5, 1554: 8, 1278: 3, 1326: 8, 1387: 4, 166: 2, 1390: 6, 1454: 5, 1394: 8, 1483: 8, 1522: 5, 1430: 4, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8, 1458: 8, 1102: 3, 1515: 8, 1486: 3}, 1: {632: 8, 728: 7, 1400: 6, 525: 8, 461: 3, 514: 5, 546: 5, 717: 1, 845: 8, 1393: 1, 909: 8, 760: 7, 758: 8, 792: 5, 962: 2, 1074: 8, 813: 8, 664: 6, 690: 1, 694: 8, 1160: 8, 946: 2, 1426: 8, 1218: 4, 1378: 4, 1032: 6, 1106: 6, 914: 2, 1069: 4, 1166: 7, 1330: 5, 1270: 5, 1266: 8, 1070: 6, 1518: 4, 1554: 8, 1517: 3, 1294: 8, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8, 1490: 4, 1170: 6}, 2: {757: 7, 1257: 4, 1416: 8, 973: 8, 773: 7, 845: 8, 520: 8, 610: 1, 841: 8, 941: 8, 1304: 4, 909: 8, 770: 7, 840: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 781: 8, 1186: 2, 1037: 8, 1010: 8, 936: 6, 1128: 8, 1161: 8, 749: 7, 1101: 8, 1099: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1086: 6, 1118: 6, 1150: 8, 1042: 8, 877: 4, 1134: 2, 1298: 4, 1173: 4, 1422: 8, 1038: 5, 1554: 8, 1278: 3, 1326: 8, 1387: 4, 166: 2, 1390: 6, 1454: 5, 1394: 8, 1483: 8, 1522: 5, 1430: 4, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8, 1458: 8, 1102: 3, 1515: 8, 1486: 3}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.0221305770000981}
+{'event': 'fingerprinted', 'car_fingerprint': 'PSA_OPEL_CORSA_F', 'source': 0, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': 2024, 'vin_rx_bus': 0, 'fingerprints': '{0: {757: 7, 1257: 4, 1416: 8, 973: 8, 773: 7, 845: 8, 520: 8, 610: 1, 841: 8, 941: 8, 1304: 4, 909: 8, 770: 7, 840: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 781: 8, 1186: 2, 1037: 8, 1010: 8, 936: 6, 1128: 8, 1161: 8, 749: 7, 1101: 8, 1099: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1086: 6, 1118: 6, 1150: 8, 1042: 8, 877: 4, 1134: 2, 1298: 4, 1173: 4, 1422: 8, 1038: 5, 1554: 8, 1278: 3, 1326: 8, 1387: 4, 166: 2, 1390: 6, 1454: 5, 1394: 8, 1483: 8, 1522: 5, 1430: 4, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8, 1458: 8, 1102: 3, 1515: 8, 1486: 3}, 1: {632: 8, 728: 7, 1400: 6, 525: 8, 461: 3, 514: 5, 546: 5, 717: 1, 845: 8, 1393: 1, 909: 8, 760: 7, 758: 8, 792: 5, 962: 2, 1074: 8, 813: 8, 664: 6, 690: 1, 694: 8, 1160: 8, 946: 2, 1426: 8, 1218: 4, 1378: 4, 1032: 6, 1106: 6, 914: 2, 1069: 4, 1166: 7, 1330: 5, 1270: 5, 1266: 8, 1070: 6, 1518: 4, 1554: 8, 1517: 3, 1294: 8, 1234: 3, 1362: 8, 1202: 8, 1489: 8, 1942: 8, 1410: 4, 1464: 8, 1490: 4, 1170: 6}, 2: {757: 7, 1257: 4, 1416: 8, 973: 8, 773: 7, 845: 8, 520: 8, 610: 1, 841: 8, 941: 8, 1304: 4, 909: 8, 770: 7, 840: 8, 1122: 4, 1272: 5, 850: 2, 1006: 4, 1074: 8, 781: 8, 1186: 2, 1037: 8, 1010: 8, 936: 6, 1128: 8, 1161: 8, 749: 7, 1101: 8, 1099: 8, 1035: 4, 1054: 8, 1067: 8, 1293: 8, 1086: 6, 1118: 6, 1150: 8, 1042: 8, 877: 4, 1134: 2, 1298: 4, 1173: 4, 1422: 8, 1038: 5, 1554: 8, 1278: 3, 1326: 8, 1387: 4, 166: 2, 1390: 6, 1454: 5, 1394: 8, 1483: 8, 1522: 5, 1430: 4, 974: 8, 1941: 6, 1379: 7, 1362: 8, 1012: 8, 820: 8, 1485: 4, 1933: 8, 1358: 8, 1938: 8, 1347: 4, 1411: 7, 1443: 8, 1314: 8, 1506: 8, 1442: 7, 1473: 8, 1475: 8, 1432: 4, 1922: 8, 1108: 8, 1172: 8, 1230: 8, 1458: 8, 1102: 3, 1515: 8, 1486: 3}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 1.0221305770000981}
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+selfdrived got CarParams
+selfdrive/pandad/panda_safety.cc: Finished FW query, Waiting for params to set safety model
+restored torque params from cache
+plannerd got CarParams: psa
+controlsd got CarParams
+radard got CarParams
+modeld got CarParams: psa
+skipping model eval. Dropped 24 frames
+skipping model eval. Dropped 2 frames
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+loggerd encoderd logmessaged camerad logcatd proclogd micd timed modeld dmonitoringmodeld sensord ui soundd locationd calibrationd torqued controlsd selfdrived card deleter dmonitoringd qcomgpsd pandad paramsd lagd plannerd radard hardwared tombstoned uploader statsd
+{"event": "selfdrived.initialized", "dt": 0.98, "timeout": false, "canValid": true, "invalid": ["alertDebug", "gpsLocation"], "not_alive": ["alertDebug", "gpsLocation"], "not_freq_ok": ["alertDebug", "gpsLocation"], "error": true}
+selfdrive/pandad/panda_safety.cc: got 448 bytes CarParams
+selfdrive/pandad/panda_safety.cc: Panda 0: setting safety model: 31, param: 0, alternative experience: 1
+selfdrive/pandad/pandad.cc: psa_init
+```
+
+# extended debug print:
 ```
 Waiting for CAN messages...
 Getting VIN & FW versions
