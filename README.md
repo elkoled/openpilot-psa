@@ -108,6 +108,10 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Dashcam mode - Lane Departure**: 6a7075a4fdd765ee/00000052--dbdeef811e
 
+**Replicate stock LKAS state 20Hz**:  6a7075a4fdd765ee/0000007a--8ef46fda2f
+
+**Replicate stock LKAS state 100Hz**: 6a7075a4fdd765ee/0000007b--c91dd29d2a
+
 # ECU Firmware Query
 
 #### ARTIV (Radar ECU)
