@@ -110,6 +110,8 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Replicate stock LKAS state 20Hz**:  6a7075a4fdd765ee/0000007a--8ef46fda2f
 
+**Replicate stock LKAS state 20Hz commited**: 6a7075a4fdd765ee/0000007c--a025cec441
+
 **Replicate stock LKAS state 100Hz**: 6a7075a4fdd765ee/0000007b--c91dd29d2a
 
 # ECU Firmware Query
