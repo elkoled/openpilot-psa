@@ -13,7 +13,7 @@ Car models in scope for the PSA openpilot port. If name and part number are pres
 | Alfa Romeo Junior Elektro    | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Alfa Romeo Junior Hybrid     | CMP2    | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen Basalt               | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
-| Citroen Berlingo             | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830707680-00 | 2018 - ? | Torque
+| Citroen Berlingo             | EMP2    | BSI-EL3-CEM00 | D6  | 6.05 | 9830707680-00 | 2018 - ? | Torque/Angle
 | Citroen C3 III               | PF1     | BSI-EL3-CEM00 | D6  | 6.05 | 9830790580-00 | 2016 - ? |
 | Citroen C3 Aircross          | PF1     | BSI-EL5-CEM00 | D7 | 7.10 | 9832880680-00 | 2017 - ? |
 | Citroen C3 IV (CC21)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
