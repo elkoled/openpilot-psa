@@ -112,9 +112,11 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Peugeot 3008 2019 ACC**: aa0ad8ba95ff270c/00000007--4547e0002f
 
-**Citroen Berlingo 2019 CC**: (TODO: find better route)
+**Citroen Berlingo 2019 CC**: 378c9bf47606eb28/00000002--5b692350f3
 
 **Citroen Berlingo 2018 VP9**: 4cef1f7eba322b25/00000027--8ab4f5398a
+
+**Citroen Berlingo 2018 VP9 Stock**: 4cef1f7eba322b25/0000001c--926a66d4c9
 
 **Citroen C5 Aircross 2020 CC**: 564853d6b754a8fe/00000010--01461d6104 (TODO: find better route)
 
