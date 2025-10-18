@@ -110,7 +110,7 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Peugeot 508 2020 Hybrid ACC**: 4cef1f7eba322b25/00000000--dee7de3f20
 
-**Peugeot 3008 2019 ACC**: (TODO: find better route)
+**Peugeot 3008 2019 ACC**: aa0ad8ba95ff270c/00000007--4547e0002f
 
 **Citroen Berlingo 2019 CC**: (TODO: find better route)
 
