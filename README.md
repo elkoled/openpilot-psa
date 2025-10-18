@@ -108,13 +108,13 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Peugeot 208 2022 ACC**: (TODO: find better route)
 
-**Peugeot 508 Hybrid ACC**: 4cef1f7eba322b25/00000000--dee7de3f20
+**Peugeot 508 2020 Hybrid ACC**: 4cef1f7eba322b25/00000000--dee7de3f20
 
 **Peugeot 3008 2019 ACC**: (TODO: find better route)
 
 **Citroen Berlingo 2019 CC**: (TODO: find better route)
 
-**Citroen Berlingo VP9**: 4cef1f7eba322b25/00000027--8ab4f5398a
+**Citroen Berlingo 2018 VP9**: 4cef1f7eba322b25/00000027--8ab4f5398a
 
 **Citroen C5 Aircross 2020 CC**: 564853d6b754a8fe/00000010--01461d6104 (TODO: find better route)
 
