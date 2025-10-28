@@ -31,7 +31,7 @@ Car models in scope for the PSA openpilot port. If name and part number are pres
 | Dongfeng Fengshen Yixuan GS  | CMP     | ?            | ?  | ?    | ?             | 2020 - ? |
 | DS 3 Crossback (E-Tense)     | CMP     | BSI-EL4-CEM00 | D6 | 6.05 | 9830707780-00 | 2018 - ? |
 | DS 4                         | EMP2    | BSI-Q04-01   | ?  | ?    | 9806687980 01  | 2021 - ? |
-| DS 7 Crossback               | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? |
+| DS 7 Crossback               | EMP2    | BSI-EL5-CEM00 | D6 | 6.05 | 9830805680-00 | 2019 - ? | Angle
 | Fiat 600(e)                  | CMP2    | ?            | ?  | ?    | ?             | 2023 - ? |
 | Fiat Grande Panda(e)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Fiat Multipla                | SCP     | ?            | ?  | ?    | ?             | 2025 - ? |
