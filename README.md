@@ -141,6 +141,8 @@ The 60-pin connectors are mechanically coded. Black EP connector is used for the
 
 **Replicate stock LKAS state 100Hz**: 6a7075a4fdd765ee/0000007b--c91dd29d2a
 
+**Parking assist**: 6a7075a4fdd765ee/00000005--e189f9a259
+
 # ECU Firmware Query
 
 #### ARTIV (Radar ECU)
