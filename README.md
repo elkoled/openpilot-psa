@@ -19,6 +19,7 @@ Car models in scope for the PSA openpilot port. If name and part number are pres
 | Citroen C3 IV (CC21)         | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen C3 Aircross (CC24)   | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen C4 III               | CMP     | BSI-EI4-CEM00 | D7  | 7.09 | 9832881080-00 | 2020 - ? |
+| Citroen C4 SpaceTourer       | EMP2    | ?            | ?    |     |              | 2018 - ? | Torque
 | Citroen C4 X                 | CMP     | ?            | ?  | ?    | ?             | 2023 - ? |
 | Citroen ë-C3                 | SCP     | ?            | ?  | ?    | ?             | 2024 - ? |
 | Citroen ë-C3 Aircross        | SCP     | ?            | ?  | ?    | ?             | 2024 - ? | 
