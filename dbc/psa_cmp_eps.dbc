@@ -1,0 +1,338 @@
+VERSION ""
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+	SIG_GROUP_
+	BO_TX_BU_
+
+BS_:
+
+BU_: EPS BSI ESC CMM CDS CAV XXX
+
+
+BO_ 277 IS_VERS_DIRA_115: 8 EPS
+ SG_ System_Code : 7|8@0+ (1,0) [0|255] "" XXX
+ SG_ Download_Day : 15|8@0+ (1,0) [1|31] "" XXX
+ SG_ Download_Month : 23|8@0+ (1,0) [1|12] "" XXX
+ SG_ Download_Year : 31|8@0+ (1,0) [0|99] "" XXX
+ SG_ Application_Code : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ Software_Version : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ Software_Edition_MSB : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ Software_Edition_LSB : 63|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 757 IS_DYN_DAE: 7 EPS
+ SG_ CHECKSUM : 7|4@0+ (1,0) [0|15] "" XXX
+ SG_ COUNTER : 3|4@0+ (1,0) [0|15] "" XXX
+ SG_ CPLE_VOLANT_OPTMSE : 15|8@0- (0.1,0) [-10|10] "Nm" XXX
+ SG_ ETAT_DAE_CPK : 22|2@0+ (1,0) [0|3] "" XXX
+ SG_ CAUSE_DESACTIV_CPK : 20|3@0+ (1,0) [0|7] "" XXX
+ SG_ ANGLE_COLONNE : 31|16@0- (0.1,0) [-1630|1630] "deg" XXX
+ SG_ VITESSE_COLONNE : 47|12@0- (1,0) [-2000|2000] "deg/s" XXX
+ SG_ ETAT_DAE_CAV3_VIRTUEL : 51|3@0+ (1,0) [0|7] "" XXX
+ SG_ ETAT_SECU_ANGLE_COL : 48|1@0+ (1,0) [0|1] "" XXX
+
+BO_ 773 IS_DYN_VOL: 7 EPS
+ SG_ ANGLE_VOLANT : 7|16@0- (0.1,0) [-780|780] "deg" XXX
+ SG_ VITESSE_ROT_VOL : 23|8@0+ (4,0) [0|1016] "deg/s" XXX
+ SG_ SENS_ROT_VOL : 31|1@0+ (1,0) [0|1] "" XXX
+ SG_ CODE_DEFAUT_VOL : 30|4@0+ (1,0) [0|15] "" XXX
+ SG_ TRIM_VOL : 26|1@0+ (1,0) [0|1] "" XXX
+ SG_ CALIBRATION_VOL : 25|1@0+ (1,0) [0|1] "" XXX
+ SG_ ETAT_CAPT_VOL : 24|1@0+ (1,0) [0|1] "" XXX
+ SG_ CHKSUM_VOL : 39|4@0+ (1,0) [0|15] "" XXX
+ SG_ CPT_PROCESS_4B_A_VOL : 35|4@0+ (1,0) [0|15] "" XXX
+ SG_ VITESSE_ROT_VOL_OPTIMISE : 47|8@0+ (4,0) [0|1016] "deg/s" XXX
+ SG_ FLG_INIT_AVOL : 55|1@0+ (1,0) [0|1] "" XXX
+ SG_ FLG_AVOL_ICN : 54|1@0+ (1,0) [0|1] "" XXX
+ SG_ ANGLE_VOLANT_ORIGINE : 53|2@0+ (1,0) [0|3] "" XXX
+ SG_ RESERVED : 51|4@0+ (1,0) [0|15] "" XXX
+
+BO_ 1173 IS_DAT_DIRA: 4 EPS
+ SG_ CPLE_VOLANT : 7|8@0- (0.25,0) [-32|31.5] "Nm" XXX
+ SG_ ETAT_DA_2010 : 15|2@0+ (1,0) [0|3] "" XXX
+ SG_ ETAT_DA_DYN : 13|2@0+ (1,0) [0|3] "" XXX
+ SG_ ETAT_DA_2004 : 9|2@0+ (1,0) [0|3] "" XXX
+ SG_ DDE_REDEM_DA : 23|1@0+ (1,0) [0|1] "" XXX
+ SG_ AUTOR_ARRET_MOT_DA : 21|1@0+ (1,0) [0|1] "" XXX
+ SG_ EPS_STATE_LKA : 20|3@0+ (1,0) [0|7] "" XXX
+ SG_ STEERWHL_HOLD_BY_DRV : 17|1@0+ (1,0) [0|1] "" XXX
+ SG_ TRQ_LIMIT_STATE : 16|1@0+ (1,0) [0|1] "" XXX
+ SG_ Reserved : 31|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 1941 IS_SUPV_DIRA: 6 EPS
+ SG_ CODE_DEFAUT : 7|8@0+ (1,0) [0|255] "" XXX
+ SG_ STATUS_CONFABSENT : 15|32@0+ (1,0) [0|4294967295] "" XXX
+ SG_ ETAT_LIGNE_APC : 47|1@0+ (1,0) [0|1] "" XXX
+ SG_ ETAT_ASSIST_DA : 46|3@0+ (1,0) [0|7] "" XXX
+
+BO_ 1909 IS_EMIS_NEW_JDD_CAN_DIRA: 8 EPS
+ SG_ Number_of_Frames : 7|2@0+ (1,0) [0|3] "" XXX
+ SG_ Frame_Number : 5|2@0+ (1,0) [0|3] "" XXX
+ SG_ DTC_State : 3|1@0+ (1,0) [0|1] "" XXX
+ SG_ Type_of_Message : 1|2@0+ (1,0) [0|3] "" XXX
+ SG_ JDD_Byte1 : 15|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte2 : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte3 : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte4 : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte5 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte6 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ JDD_Byte7 : 63|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 1010 IS_DAT_BSI_3F2: 8 BSI
+ SG_ DMD_DELEST_DA : 2|1@0+ (1,0) [0|1] "" EPS
+ SG_ LKA_STATE : 36|3@0+ (1,0) [0|7] "" EPS
+ SG_ LXA_ACTIVATION : 40|1@0+ (1,0) [0|1] "" EPS
+ SG_ LKA_TRQ_FACT_REQ : 47|7@0+ (0.01,0) [0|1.27] "" EPS
+ SG_ COLUMN_ANGLE_SETPOINT : 55|14@0- (0.1,0) [-819.2|819.1] "deg" EPS
+
+BO_ 747 IS_DYN_AAS: 8 XXX
+ SG_ CONS_ANGLE_CPK : 7|16@0- (0.1,0) [-780|780] "deg" EPS
+ SG_ DMD_FCT_CPK : 23|2@0+ (1,0) [0|3] "" EPS
+ SG_ DMD_RELAXE_CPK : 21|2@0+ (1,0) [0|3] "" EPS
+ SG_ CHECKSUM : 31|4@0+ (1,0) [0|15] "" EPS
+ SG_ COUNTER : 27|4@0+ (1,0) [0|15] "" EPS
+
+BO_ 909 IS_DYN_ABR: 8 ESC
+ SG_ VITESSE_VEHICULE_ROUES : 7|16@0+ (0.01,0) [0|655.34] "km/h" EPS
+ SG_ CHECKSUM : 43|4@0+ (1,0) [0|15] "" EPS
+ SG_ COUNTER : 47|4@0+ (1,0) [0|15] "" EPS
+
+BO_ 904 IS_DYN_CMM_388: 8 CMM
+ SG_ VITESSE_VEHICLE_BV : 7|16@0+ (0.01,0) [0|655.34] "km/h" EPS
+
+BO_ 973 IS_DYN2_FRE_3CD: 4 ESC
+ SG_ Accel_Lat : 7|16@0- (0.05,0) [-15|15] "m/s2" EPS
+
+BO_ 1293 IS_DAT_ABR_50D: 8 ESC
+ SG_ Regul_ABR : 5|1@0+ (1,0) [0|1] "" EPS
+
+BO_ 845 IS_DYN_CDS_34D: 8 CDS
+ SG_ ESP_Deconnecte : 7|1@0+ (1,0) [0|1] "" EPS
+ SG_ Regul_ESP : 6|1@0+ (1,0) [0|1] "" EPS
+ SG_ REQ_Lampe_DEF_ESP : 4|1@0+ (1,0) [0|1] "" EPS
+
+BO_ 840 IS_DYN2_CMM_348: 8 CMM
+ SG_ ETAT_MT : 43|4@0+ (1,0) [0|15] "" EPS
+
+BO_ 520 IS_DYN_CMM_208: 8 CMM
+ SG_ DIAG_MUX_ON : 38|1@0+ (1,0) [0|1] "" EPS
+
+BO_ 1042 IS_DAT_BSI_412: 8 BSI
+ SG_ Req_Mode_DA : 31|2@0+ (1,0) [0|3] "" EPS
+
+BO_ 1074 IS_DAT_BSI_432: 8 BSI
+ SG_ ETAT_RESEAU_ELEC : 63|4@0+ (1,0) [0|15] "" EPS
+ SG_ Shunt_Position : 54|2@0+ (1,0) [0|3] "" EPS
+ SG_ Power_Supplies : 52|3@0+ (1,0) [0|7] "" EPS
+ SG_ ETAT_PRINCIP_SEV : 49|2@0+ (1,0) [0|3] "" EPS
+
+BO_ 1362 IS_DAT4_V2_BSI_552: 8 BSI
+ SG_ COMPTEUR_TEMPOREL_VEHICULE : 7|32@0+ (0.1,0) [0|429496729.5] "s" EPS
+ SG_ KILOMETRAGE : 39|24@0+ (1,0) [0|16777215] "km" EPS
+ SG_ COMPUTER_RAZ_GCT : 63|8@0+ (1,0) [0|255] "" EPS
+
+BO_ 1394 IS_DAT_BSI_572: 2 BSI
+ SG_ CONFIG_VHL : 15|3@0+ (1,0) [0|7] "" EPS
+
+BO_ 1485 PROTO_HS1_DYN_UCF_5CD: 4 ESC
+ SG_ CHECKSUM : 7|4@0+ (1,0) [0|15] "" EPS
+ SG_ COUNTER : 3|4@0+ (1,0) [0|15] "" EPS
+ SG_ OFFSET : 15|16@0- (0.1,0) [-1630|1630] "deg" EPS
+ SG_ PRECISION_OFFSET : 31|5@0+ (1,0) [0|31] "deg" EPS
+ SG_ ACQ_INTERRUPT_DAE : 26|1@0+ (1,0) [0|1] "" EPS
+
+BO_ 146 IS_INTE_ELECTRON_BSI: 8 BSI
+ SG_ DIAG_INTEGRA_ELEC : 7|1@0+ (1,0) [0|1] "" EPS
+ SG_ MODE_DIAG : 6|1@0+ (1,0) [0|1] "" EPS
+ SG_ EFFAC_DEFAULT_DIAG : 0|1@0+ (1,0) [0|1] "" EPS
+
+BO_ 1906 IS_ACQ_JDD_CAN_BSI_772: 1 BSI
+ SG_ DATA_ACQ_JDD_BSI : 7|8@0+ (1,0) [0|255] "" EPS
+
+BO_ 1375 IS_ACQ_NEW_JDD_55F: 1 BSI
+ SG_ DATA_ACQ_JDD_BSI_2 : 7|8@0+ (1,0) [0|255] "" EPS
+
+BO_ 1717 IS_REQ_DIAG_ON_CAN: 8 XXX
+ SG_ Diagnostic_Data_Req : 7|64@0+ (1,0) [0|1.8446744073709552E+019] "" EPS
+
+BO_ 1685 IS_RES_DIAG_ON_CAN: 8 EPS
+ SG_ Diagnostic_Data_Res : 7|64@0+ (1,0) [0|1.8446744073709552E+019] "" XXX
+
+BO_ 2047 IS_DIAG_UDS_ON_CAN_7FF: 8 XXX
+ SG_ Diagnostic_Func_Req : 7|64@0+ (1,0) [0|1.8446744073709552E+019] "" EPS
+
+BO_ 1966 XCP_REQ: 8 XXX
+ SG_ XCP_Data_Req : 7|64@0+ (1,0) [0|1.8446744073709552E+019] "" EPS
+
+BO_ 1968 XCP_RES: 8 EPS
+ SG_ XCP_Data_Res : 7|64@0+ (1,0) [0|1.8446744073709552E+019] "" XXX
+
+BO_TX_BU_ 773 : EPS,CAV;
+
+
+CM_ "DBC fragment for the PSA CMP EPS. Byte order: all Motorola (big endian). Signal names = PSA names. CHECKSUM/COUNTER names follow the opendbc convention (PSA nibble checksum chk=(chk_ini - sum_of_nibbles) & 0xF with chk_ini per ID: 0x2F5=0xB, 0x38D=0x7, 0x2EB=0x4, 0x5CD=0x1). 0x305 uses an XOR checksum, 0x3F2 has no checksum/counter checked by this EPS.";
+CM_ BO_ 277 "IS_VERS_DIRA_115: EPS software version frame. Event (OnWrite) - written once when TX is enabled after power-up. Values from NVM (default System_Code=0x6A, App code 1, SW version 0, edition 0xFF00).";
+CM_ BO_ 757 "IS_DYN_DAE (Dynamique Direction Assistee Electrique): EPS dynamic data. TX cyclic 10 ms (2 x 5 ms IL ticks), start delay 5 ms. opendbc name: STEERING.";
+CM_ SG_ 757 CHECKSUM "CHKSUM_TRME_DYN_DAE. PSA nibble checksum over bytes 0..6, chk_ini 0xB (equivalently: preset 4, sum nibbles, XOR 0xF).";
+CM_ SG_ 757 COUNTER "CPT_PROCESS_4B_DAE, +1 per transmission, wraps 15->0.";
+CM_ SG_ 757 CPLE_VOLANT_OPTMSE "Optimised steering-wheel (driver handwheel) torque, 0.1 Nm/bit, clamped +-10 Nm, 127 = invalid (handwheel-torque sensor fault). Not sign-inverted (angles are). opendbc: DRIVER_TORQUE (raw counts).";
+CM_ SG_ 757 ETAT_DAE_CPK "City Park (APA) function state: 0 unavailable, 1 available, 2 control in progress, 3 defect. Forced 0 if City Park not configured.";
+CM_ SG_ 757 CAUSE_DESACTIV_CPK "Reason for City Park interruption.";
+CM_ SG_ 757 ANGLE_COLONNE "Column (relative) angle = -(internal RelHwPosnToSerlCom or HandwheelPosition), 0.1 deg, clamped +-1630, 0x7FFF invalid. Same sign convention as 0x305 ANGLE_VOLANT and 0x3F2 COLUMN_ANGLE_SETPOINT. opendbc: STEERING.ANGLE.";
+CM_ SG_ 757 VITESSE_COLONNE "Column speed = -(internal handwheel velocity), deg/s, clamped +-2000, 2047 = invalid. opendbc: STEERING.RATE.";
+CM_ SG_ 757 ETAT_DAE_CAV3_VIRTUEL "State of the EPS 'virtual steering-angle sensor' (angle arbitration, PsaAgArbn): 0 init, 1 pending/offset init request, 2 no sync/offset search, 3 synced on ESC offset (0x5CD), 4 synced on calibrated (diag) offset, 5 synced on self-detected offset, 7 failed.";
+CM_ SG_ 757 ETAT_SECU_ANGLE_COL "1 = column angle secure: angle valid continuously for >= 200 ms. opendbc: STEERING.NEW_SIGNAL_1.";
+CM_ BO_ 773 "IS_DYN_VOL (steering wheel angle sensor, CAV). DBC has BOTH EPS and an external sensor as possible sender. EPS TX (10 ms) only when the turns-counter / ESC-offset variant is configured (ESCOffsCfgSeld), otherwise IlStopCycle; EPS RX/plausibility only when an external high-column sensor is configured (CAVHCSelected). opendbc name: STEERING_ALT.";
+CM_ SG_ 773 ANGLE_VOLANT "Absolute steering wheel angle = -(internal AbsltHwPosn), 0.1 deg, 0x7FFF invalid (sent invalid until absolute position is known). RX valid range +-780 deg.";
+CM_ SG_ 773 VITESSE_ROT_VOL "|handwheel speed| in 4 deg/s steps (0..1016), 255 invalid. opendbc RATE uses scale 1 (wrong by factor 4).";
+CM_ SG_ 773 SENS_ROT_VOL "1 when internal handwheel velocity <= 0, i.e. when ANGLE_VOLANT is increasing (or zero). opendbc RATE_SIGN.";
+CM_ SG_ 773 CHKSUM_VOL "XOR checksum: x = byte0^byte1^byte2^byte3^byte4 (with this nibble = 0); CHKSUM_VOL = (x ^ (x >> 4)) & 0xF. Bytes 5-6 not covered. Receiver check: fold(XOR(bytes0..4)) == 0.";
+CM_ SG_ 773 CPT_PROCESS_4B_A_VOL "Process counter, +1 per transmission.";
+CM_ SG_ 773 VITESSE_ROT_VOL_OPTIMISE "Duplicate of VITESSE_ROT_VOL (4 deg/s per bit). opendbc RATE_ALT.";
+CM_ SG_ 773 FLG_INIT_AVOL "1 = absolute angle not at confidence level 1 (memorised value), 0 = available.";
+CM_ SG_ 773 FLG_AVOL_ICN "1 = absolute angle not at confidence level 2 (uncertain but valid).";
+CM_ SG_ 773 ANGLE_VOLANT_ORIGINE "Origin of angle; EPS always sends 3 (Other).";
+CM_ SG_ 773 ETAT_CAPT_VOL "1 = sensor OK (relative position valid).";
+CM_ SG_ 773 TRIM_VOL "Always 1 (trimmed) from EPS.";
+CM_ SG_ 773 CALIBRATION_VOL "Always 1 (calibrated) from EPS.";
+CM_ SG_ 773 CODE_DEFAUT_VOL "Always 0 from EPS.";
+CM_ BO_ 1173 "IS_DAT_DIRA (Donnees Direction Assistee): EPS status. TX cyclic 100 ms. No checksum/counter. Initial frame 7F 00 00 3C.";
+CM_ SG_ 1173 CPLE_VOLANT "Driver steering-wheel torque (same source as 0x2F5 CPLE_VOLANT_OPTMSE), 0.25 Nm/bit, clamped -32..31.5, 127 = invalid. NOT EPS motor torque (opendbc calls it EPS_TORQUE).";
+CM_ SG_ 1173 ETAT_DA_2010 "EPS warning-lamp request (AEE2010 cluster): 0 none, 2 orange. Red (1) never sent by this SW.";
+CM_ SG_ 1173 ETAT_DA_2004 "Legacy (AEE2004) lamp request; constant 2 (orange) when JDD2010 is selected.";
+CM_ SG_ 1173 ETAT_DA_DYN "Steering tuning mode in use (multimode): 0 normal, 1 dynamic, 2 adjustable.";
+CM_ SG_ 1173 DDE_REDEM_DA "Engine RE-START request from EPS (Stop&Start), not a steering reboot. 1 when EPS needs the engine (torque/velocity/speed/angle above thresholds, thermal/duty-cycle, low voltage, invalid engine state).";
+CM_ SG_ 1173 AUTOR_ARRET_MOT_DA "Permission to stop the engine (Stop&Start) from EPS.";
+CM_ SG_ 1173 EPS_STATE_LKA "EPS lateral-assist state: 0 unauthorised, 1 authorised, 2 available, 3 active, 4 defect. Forced 0 if LXA not configured.";
+CM_ SG_ 1173 STEERWHL_HOLD_BY_DRV "Driver intervention detected during LXA (DrvrIntvDetd).";
+CM_ SG_ 1173 TRQ_LIMIT_STATE "LXA torque saturation active.";
+CM_ SG_ 1173 Reserved "Constant 0x3C (DBC start value, never written by the application).";
+CM_ BO_ 1941 "IS_SUPV_DIRA: EPS supervision. Cyclic 1000 ms + on change (min gap 15 ms), start delay 5 ms.";
+CM_ SG_ 1941 CODE_DEFAUT "1 = a customer trouble code (CTC) is failed.";
+CM_ SG_ 1941 STATUS_CONFABSENT "Always 0 in this SW.";
+CM_ SG_ 1941 ETAT_LIGNE_APC "Ignition (APC = apres contact) line state seen by EPS (EpsEn).";
+CM_ SG_ 1941 ETAT_ASSIST_DA "Assist state: 0 not active (ramp-down complete), 1 nominal, 2 degraded (no valid vehicle speed / duty-cycle / thermal limit), 3 STTa (engine stopped by Stop&Start), 4 STTd (power cut), 7 disabled.";
+CM_ BO_ 1909 "JDD fault-log emission (Journal De Defauts) to BSI, event-driven, acked by 0x772/0x55F.";
+CM_ BO_ 1010 "IS_DAT_BSI_3F2: LXA (lane keeping / lane positioning) request relayed by BSI. Cycle 50 ms. Missing-message timeout 200 ms. Only bytes 0,4,5,6,7 are used; bytes 1-3 (opendbc COUNTER/CHECKSUM/unknown2/TORQUE) are NOT read or checked by this EPS. When LXA is configured DLC must be 8 (else DLC error). opendbc name: LANE_KEEP_ASSIST.";
+CM_ SG_ 1010 DMD_DELEST_DA "Power-cut (load-shedding) request to EPS for STTd. Only read if STTd configured. Must stay 0 above 8.5 km/h, max 3 s below 7.5 km/h.";
+CM_ SG_ 1010 LKA_STATE "LXA function state from camera/BSI: 0 unavailable, 1 unselected, 2 selected, 3 authorized, 4 active, 5 defect, 6 collision risk, 7 reserved (invalid, fault after 4 frames). opendbc STATUS.";
+CM_ SG_ 1010 LXA_ACTIVATION "0 = LKA, 1 = LPA (lane positioning). Selects driver-absence detection time: LPA uses speed-dependent table, LKA a fixed time. opendbc LXA_ACTIVATION.";
+CM_ SG_ 1010 LKA_TRQ_FACT_REQ "Requested LXA torque authority factor, 0.01/bit, valid 0..100 (0..1.00); 126 = unavailable (treated as 0); 101..125/127 invalid -> factor 0 and fault after 4 frames. opendbc TORQUE_FACTOR (raw).";
+CM_ SG_ 1010 COLUMN_ANGLE_SETPOINT "Column angle setpoint, signed 14 bit, 0.1 deg. Internal = -raw*0.1. Invalid if |angle| > 780 deg (after 4 frames, last valid value held); clamped to +-500 deg. opendbc SET_ANGLE.";
+CM_ BO_ 747 "IS_DYN_AAS (Aide Au Stationnement): City Park / park-assist angle command. Cycle 20 ms, timeout 200 ms. Only processed when City Park is configured. DLC >= 4.";
+CM_ SG_ 747 CONS_ANGLE_CPK "City Park steering-wheel angle setpoint, 0.1 deg, valid +-780, clamped +-500, internal = -raw.";
+CM_ SG_ 747 DMD_FCT_CPK "City Park function request: 0 none, 1 SCP6 control, 2 SCP9 control, 3 invalid. Must be stable 3 frames.";
+CM_ SG_ 747 DMD_RELAXE_CPK "Relax request: 0 reserved, 1 no request, 2 relax, 3 invalid.";
+CM_ SG_ 747 CHECKSUM "CHKSUM_TRME_DYN_CPK. PSA nibble checksum over 8 bytes (zero padded), chk_ini 0x4 (receiver seed 11).";
+CM_ SG_ 747 COUNTER "CPT_PROCESS_4B_CPK, must be previous+1.";
+CM_ BO_ 909 "IS_DYN_ABR: ESC wheel-based vehicle speed. Cycle 40 ms (DBC), timeout 200 ms. 10 good frames switch the EPS permanently to using 0x38D speed + 0x3CD lateral accel. opendbc HS2_DYN_ABR_38D.";
+CM_ SG_ 909 VITESSE_VEHICULE_ROUES "Vehicle speed from wheels, 0.01 km/h, 0xFFFF invalid.";
+CM_ SG_ 909 CHECKSUM "CHKSUM_TRME_DYN_UC_FREIN, nibble checksum chk_ini 0x7 (receiver seed 8).";
+CM_ SG_ 909 COUNTER "CPT_PROCESS_4B_UC_FREIN, must be previous+1.";
+CM_ BO_ 904 "IS_DYN_CMM_388: gearbox/engine vehicle speed. Used only when no 0x38D has been seen. Cycle 40 ms, timeout 200 ms.";
+CM_ SG_ 904 VITESSE_VEHICLE_BV "Vehicle speed from gearbox (BV = boite de vitesses), 0.01 km/h, 0xFFFF invalid.";
+CM_ BO_ 973 "IS_DYN2_FRE_3CD: ESC lateral acceleration (used together with 0x38D). Cycle 10 ms, timeout 200 ms. CONFLICTS with opendbc Dyn2_FRE layout - to be verified on a CMP route.";
+CM_ SG_ 973 Accel_Lat "Lateral acceleration 0.05 m/s2/bit, valid +-300 counts (+-15 m/s2), 0x7FFF invalid.";
+CM_ BO_ 1293 "IS_DAT_ABR_50D: ABS data. Cycle 100 ms, timeout 300 ms. Required (presence) for LXA.";
+CM_ SG_ 1293 Regul_ABR "ABS regulation active.";
+CM_ BO_ 845 "IS_DYN_CDS_34D (CDS = controle dynamique de stabilite = ESP). Cycle 20 ms, timeout 200 ms. Required (presence) for LXA.";
+CM_ SG_ 845 ESP_Deconnecte "1 = ESP switched off.";
+CM_ SG_ 845 Regul_ESP "ESP regulating.";
+CM_ SG_ 845 REQ_Lampe_DEF_ESP "ESP fault lamp request.";
+CM_ BO_ 840 "IS_DYN2_CMM_348: engine state. Cycle 20 ms, timeout 100 ms.";
+CM_ SG_ 840 ETAT_MT "Engine (moteur thermique) state. EngOn when value 3/4/5/6/13 stable for 3 frames.";
+CM_ BO_ 520 "IS_DYN_CMM_208: engine dynamic data. Cycle 10 ms, timeout 100 ms.";
+CM_ SG_ 520 DIAG_MUX_ON "1 = network (serial-com) diagnosis enabled. Gates DiagOn (EPS mute detection) with 1100 ms timeout.";
+CM_ BO_ 1042 "IS_DAT_BSI_412. Cycle 50 ms, timeout 200 ms (only if multimode configured).";
+CM_ SG_ 1042 Req_Mode_DA "Steering mode request (multimode / drive mode): 0 normal, 1 dynamic, 2 adjustable, 3 reserved(invalid). Applied after 3 identical frames.";
+CM_ BO_ 1074 "IS_DAT_BSI_432: BSI electrical network data. Cycle 50 ms, timeout 500 ms (JDD2010 only).";
+CM_ SG_ 1074 ETAT_RESEAU_ELEC "Electrical network state: 0 TI nominal, 1 TI degraded, 2 TI ready for start, 3 cranking, 4 restart, 5 TA nominal, 6 TA degraded, 7 TA safety.";
+CM_ SG_ 1074 ETAT_PRINCIP_SEV "Main vehicle electrical state: 0 stop, 1 ignition on (contact), 2 cranking (demarrage).";
+CM_ SG_ 1074 Shunt_Position "Shunt position (fault-log context).";
+CM_ SG_ 1074 Power_Supplies "Power supplies state (fault-log context).";
+CM_ BO_ 1362 "IS_DAT4_V2_BSI_552: vehicle time/odometer. Cycle 1000 ms, timeout 10 s. Layout below is the JDD2010 interpretation. Non-JDD2010 layout: SECONDE_ECOULEE 20 bit (byte0..byte2 hi), JOUR_ECOULE 12 bit, ANNEE_ECOULE byte4.";
+CM_ SG_ 1362 COMPTEUR_TEMPOREL_VEHICULE "Vehicle time counter, 0.1 s/bit, 0xFFFFFFFF invalid. Used to compute ignition-off time.";
+CM_ SG_ 1362 KILOMETRAGE "Odometer.";
+CM_ SG_ 1362 COMPUTER_RAZ_GCT "Global time counter reset count, 0xFF invalid.";
+CM_ BO_ 1394 "IS_DAT_BSI_572. Cycle 100 ms, timeout 500 ms, only if turns-counter/ESC-offset variant configured.";
+CM_ SG_ 1394 CONFIG_VHL "Vehicle configuration (plant/client/transport...). 3 or 6 -> EPS energy mode TRANSPORTATION.";
+CM_ BO_ 1485 "PROTO_HS1_DYN_UCF_5CD: ESC-provided steering angle offset for the EPS turns counter (virtual CAV3). Cycle 1000 ms, timeout 2000 ms. Only when ESCOffsCfgSeld.";
+CM_ SG_ 1485 CHECKSUM "CHKSUM_TRME_DYN_UCF, nibble checksum chk_ini 0x1 (receiver seed 0xE).";
+CM_ SG_ 1485 COUNTER "CPT_PROCESS_4B_UCF.";
+CM_ SG_ 1485 OFFSET "Angle offset 0.1 deg, internal = -raw, valid +-1630, 0x7FFE unavailable, 0x7FFF invalid.";
+CM_ SG_ 1485 PRECISION_OFFSET "Offset precision in deg, 30 unavailable, 31 invalid.";
+CM_ SG_ 1485 ACQ_INTERRUPT_DAE "Acknowledge of EPS offset interrupt.";
+CM_ BO_ 146 "IS_INTE_ELECTRON_BSI: electronic-integration / plant commands. IfActive 100 ms. Two identical frames within 1 s while EPS not in OPERATE and not DiagOn: MODE_DIAG=1 & DIAG_INTEGRA_ELEC=1 -> EPS stops all TX and DTC updates (persisted in NvM); EFFAC_DEFAULT_DIAG=1 -> clear all DTCs.";
+CM_ BO_ 1717 "UDS physical request to EPS (ISO-TP, normal addressing, no padding).";
+CM_ BO_ 1685 "UDS response from EPS.";
+CM_ BO_ 2047 "UDS functional request.";
+CM_ BO_ 1966 "XCP request (CTO/DTO) to EPS.";
+CM_ BO_ 1968 "XCP response from EPS (also received by Gliwa T1 host-to-target handler).";
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 757 10;
+BA_ "GenMsgCycleTime" BO_ 773 10;
+BA_ "GenMsgCycleTime" BO_ 1173 100;
+BA_ "GenMsgCycleTime" BO_ 1941 1000;
+BA_ "GenMsgCycleTime" BO_ 1010 50;
+BA_ "GenMsgCycleTime" BO_ 747 20;
+BA_ "GenMsgCycleTime" BO_ 909 40;
+BA_ "GenMsgCycleTime" BO_ 904 40;
+BA_ "GenMsgCycleTime" BO_ 973 10;
+BA_ "GenMsgCycleTime" BO_ 1293 100;
+BA_ "GenMsgCycleTime" BO_ 845 20;
+BA_ "GenMsgCycleTime" BO_ 840 20;
+BA_ "GenMsgCycleTime" BO_ 520 10;
+BA_ "GenMsgCycleTime" BO_ 1042 50;
+BA_ "GenMsgCycleTime" BO_ 1074 50;
+BA_ "GenMsgCycleTime" BO_ 1362 1000;
+BA_ "GenMsgCycleTime" BO_ 1394 100;
+BA_ "GenMsgCycleTime" BO_ 1485 1000;
+BA_ "GenMsgCycleTime" BO_ 146 100;
+VAL_ 757 ETAT_DAE_CPK 3 "DEFECT_OR_INVALID" 2 "CONTROL_IN_PROGRESS" 1 "AVAILABLE" 0 "UNAVAILABLE" ;
+VAL_ 757 CAUSE_DESACTIV_CPK 7 "OTHER_FAULTS" 6 "EPS_THERMAL" 5 "TOO_MANY_MANEUVERS" 4 "OBSTACLE_AT_WHEEL" 3 "ANGLE_ERROR_TOO_HIGH" 2 "VEHICLE_SPEED_TOO_HIGH" 1 "DRIVER_HANDS_ON" 0 "NO_INTERRUPTION" ;
+VAL_ 757 ANGLE_COLONNE 32767 "INVALID" ;
+VAL_ 757 VITESSE_COLONNE 2047 "INVALID" ;
+VAL_ 757 CPLE_VOLANT_OPTMSE 127 "INVALID" ;
+VAL_ 757 ETAT_DAE_CAV3_VIRTUEL 7 "FAILED" 6 "UNUSED" 5 "SYNC_SELF_DETECTED_OFFSET" 4 "SYNC_CALIBRATED_OFFSET" 3 "SYNC_ESC_OFFSET" 2 "NO_SYNC_OFFSET_SEARCH" 1 "PENDING" 0 "INIT" ;
+VAL_ 757 ETAT_SECU_ANGLE_COL 1 "SECURE" 0 "NOT_SECURE" ;
+VAL_ 773 ANGLE_VOLANT 32767 "INVALID" ;
+VAL_ 773 VITESSE_ROT_VOL 255 "INVALID" ;
+VAL_ 773 VITESSE_ROT_VOL_OPTIMISE 255 "INVALID" ;
+VAL_ 773 ANGLE_VOLANT_ORIGINE 3 "OTHER" 2 "CAV3" 1 "INTEGRATED_CAV3" 0 "ESTIMATOR" ;
+VAL_ 1173 CPLE_VOLANT 127 "INVALID" ;
+VAL_ 1173 ETAT_DA_2010 3 "RESERVED" 2 "ORANGE" 1 "RED" 0 "NO_DEMAND" ;
+VAL_ 1173 ETAT_DA_2004 3 "RESERVED" 2 "ORANGE" 1 "RED" 0 "NO_DEMAND" ;
+VAL_ 1173 ETAT_DA_DYN 3 "INVALID" 2 "ADJUSTABLE" 1 "DYNAMIC" 0 "NORMAL" ;
+VAL_ 1173 DDE_REDEM_DA 1 "ENGINE_RESTART_REQUEST" 0 "NO_REQUEST" ;
+VAL_ 1173 AUTOR_ARRET_MOT_DA 1 "ENGINE_STOP_ALLOWED" 0 "ENGINE_STOP_NOT_ALLOWED" ;
+VAL_ 1173 EPS_STATE_LKA 4 "DEFECT" 3 "ACTIVE" 2 "AVAILABLE" 1 "AUTHORISED" 0 "UNAUTHORISED" ;
+VAL_ 1941 ETAT_ASSIST_DA 7 "DISABLED" 4 "STTD_ASSIST" 3 "STTA_ASSIST" 2 "DEGRADED_ASSIST" 1 "NOMINAL_ASSIST" 0 "ASSIST_NOT_ACTIVE" ;
+VAL_ 1010 LKA_STATE 7 "RESERVED" 6 "COLLISION_RISK" 5 "DEFECT" 4 "ACTIVE" 3 "AUTHORIZED" 2 "SELECTED" 1 "UNSELECTED" 0 "UNAVAILABLE" ;
+VAL_ 1010 LXA_ACTIVATION 1 "LPA" 0 "LKA" ;
+VAL_ 1010 LKA_TRQ_FACT_REQ 127 "INVALID" 126 "UNAVAILABLE" ;
+VAL_ 1010 DMD_DELEST_DA 1 "POWER_CUT_REQUEST" 0 "NOT_REQUESTED" ;
+VAL_ 747 DMD_FCT_CPK 3 "INVALID" 2 "SCP9_CONTROL" 1 "SCP6_CONTROL" 0 "NO_REQUEST" ;
+VAL_ 747 DMD_RELAXE_CPK 3 "INVALID" 2 "RELAX_REQUEST" 1 "NO_REQUEST" 0 "RESERVED" ;
+VAL_ 747 CONS_ANGLE_CPK 32767 "INVALID" ;
+VAL_ 909 VITESSE_VEHICULE_ROUES 65535 "INVALID" ;
+VAL_ 904 VITESSE_VEHICLE_BV 65535 "INVALID" ;
+VAL_ 973 Accel_Lat 32767 "INVALID" ;
+VAL_ 840 ETAT_MT 15 "INVALID" 13 "AUTONOMOUS_RESTART" 10 "AUTONOMOUS_STARTING" 7 "ENGINE_PREPARING" 6 "DEGRADED_RESTART" 5 "DRIVEN_RESTART" 4 "STOPPED" 3 "RUNNING" 2 "STARTING" 1 "CUT" 0 "LOCKED" ;
+VAL_ 520 DIAG_MUX_ON 1 "ENABLE_NETWORK_DIAG" 0 "DISABLE_NETWORK_DIAG" ;
+VAL_ 1042 Req_Mode_DA 3 "RESERVED" 2 "ADJUSTABLE" 1 "DYNAMIC" 0 "NORMAL" ;
+VAL_ 1074 ETAT_RESEAU_ELEC 7 "TA_SECU" 6 "TA_DEGRADE" 5 "TA_NOMINAL" 4 "REDEMARRAGE" 3 "DEMARRAGE" 2 "TI_DISPO_DEM" 1 "TI_DEGRADE" 0 "TI_NOMINAL" ;
+VAL_ 1074 ETAT_PRINCIP_SEV 2 "CRANKING" 1 "IGNITION_ON" 0 "STOP" ;
+VAL_ 1394 CONFIG_VHL 7 "INVALID" 6 "SHOW_ROOM" 5 "APV_AFTERSALES" 4 "CLIENT" 3 "STORAGE_TRANSPORT" 2 "CHECK" 1 "PLANT" 0 "FITTING" ;
+VAL_ 1485 OFFSET 32767 "INVALID" 32766 "UNAVAILABLE" ;
+VAL_ 1485 PRECISION_OFFSET 31 "INVALID" 30 "UNAVAILABLE" ;
+VAL_ 1485 ACQ_INTERRUPT_DAE 1 "ACK" 0 "NO_ACK" ;
+VAL_ 146 DIAG_INTEGRA_ELEC 1 "NO_FRAME_TRANSMISSION" 0 "NORMAL" ;
+VAL_ 146 MODE_DIAG 1 "OPERATION_AND_COMM_INHIBITED" 0 "NORMAL" ;
+VAL_ 146 EFFAC_DEFAULT_DIAG 1 "ERASE_FAULT_MEMORY" 0 "NO_ACTION" ;
