@@ -7,6 +7,7 @@ Practical findings about the CMP electric power steering ECU, validated where po
 - **[route]**: confirmed on real CAN data from a 208.
 - **[ECU]**: confirmed in the ECU's logic.
 - **[CAL]**: the logic exists, but the number comes from a development calibration and must be confirmed on a car.
+- **[ref]**: from PSA reference material, not yet confirmed on a car.
 
 Applies to: CMP / e-CMP cars with this EPS (208/2008 II, Corsa F, Mokka B, DS3 Crossback, C4 III and likely
 Avenger/600/Junior/Ypsilon; the model list is a hypothesis).
@@ -53,10 +54,10 @@ Single bus (DCAN1, 500 kbit/s). Byte order Motorola. The DBC fragment with all E
 
 | ID | Name | Rate | Content |
 |---|---|---|---|
-| 0x2F5 | IS_DYN_DAE (opendbc `STEERING`) | 100 Hz | driver torque `CPLE_VOLANT_OPTMSE` **0.1 Nm/bit**, ±10 Nm, 127 = invalid; relative column angle (zero at power-on); column rate; park-assist state. Checksum: high nibble of byte 0, nibble-sum, chk_ini 0xB; counter: low nibble of byte 0 [route] |
-| 0x305 | IS_DYN_VOL (opendbc `STEERING_ALT`) | 100 Hz | absolute steering angle 0.1°, **rate 4 °/s per bit** [route], angle-source and validity flags. **XOR checksum**: high nibble of byte 4; counter: low nibble of byte 4 [route] |
-| 0x495 | IS_DAT_DIRA | 10 Hz | `CPLE_VOLANT` (driver torque 0.25 Nm, **not EPS torque**), `EPS_STATE_LKA`, `STEERWHL_HOLD_BY_DRV`, `TRQ_LIMIT_STATE`, `DDE_REDEM_DA` (**Stop&Start engine restart request, not an EPS reboot**) |
-| 0x795 | IS_SUPV_DIRA | ~1 Hz [route] | `ETAT_ASSIST_DA`: 0 off, 1 nominal, 2 **degraded** (thermal etc.), 3/4 Stop&Start |
+| 0x2F5 | IS_DYN_DAE (opendbc `STEERING`) | 100 Hz | driver torque `CPLE_VOLANT_OPTMSE` **0.1 Nm/bit**, ±10 Nm (0x9C..0x64), 0x7F = invalid, **positive counter-clockwise** [ref][route]; relative column angle (zero at power-on); column rate; park-assist state. Checksum: high nibble of byte 0, nibble-sum, chk_ini 0xB; counter: low nibble of byte 0 [route] |
+| 0x305 | IS_DYN_VOL (opendbc `STEERING_ALT`) | 100 Hz | absolute steering angle 0.1°, increasing counter-clockwise; `VITESSE_ROT_VOL` **4 °/s per bit**, 0..1012 °/s (saturated), ±15 °/s accuracy; `SENS_ROT_VOL` 0 = angle increasing, 1 = angle decreasing [ref][route]; angle-source and validity flags. **XOR checksum**: high nibble of byte 4; counter: low nibble of byte 4 [route] |
+| 0x495 | IS_DAT_DIRA | 10 Hz | `CPLE_VOLANT` (driver torque 0.25 Nm, −32..31.5 Nm, 0x7F = invalid, **not EPS torque**) [ref][route], `EPS_STATE_LKA`, `STEERWHL_HOLD_BY_DRV`, `TRQ_LIMIT_STATE`, `DDE_REDEM_DA` (**Stop&Start engine restart request, not an EPS reboot**) |
+| 0x795 | IS_SUPV_DIRA | ~1 Hz [route] | `ETAT_ASSIST_DA`: 0 off, 1 nominal, 2 **degraded** (thermal etc.), 3/4 Stop&Start; `ETAT_LIGNE_APC` (bit 47): state of the EPS's wired +APC ignition input, 1 = on [ref] |
 | 0x115 | IS_VERS_DIRA_115 | event | SW version broadcast; **not seen on the 208 route** |
 | 0x695 / 0x6B5 | diag response / request | — | UDS, see §5 |
 
@@ -104,7 +105,32 @@ Defect causes:
 - Recoverable: CAN validity problems, cleared after 10 good frames.
 - **Latched until ignition cycle:** the safety monitor faults in 3.3, and overlap of LKA with park assist [ECU].
 
+Transitions [ref]:
+
+| From | To | Trigger |
+|---|---|---|
+| power-up | Unauthorised | initial value |
+| Unauthorised | Available | speed ≥ min LKA speed, no ESP/ABS regulation, no ESP lamp request, ESP connected, no driver inhibition, global EPS state available, `LKA_STATE` = selected (or collision risk in LKA mode), `FLAG_HOLD`, all LKA inputs valid and in range, no frame loss |
+| Available | Authorised | `LKA_STATE` = authorised |
+| Authorised | Available | `LKA_STATE` = selected |
+| Authorised | Active | `LKA_STATE` = active and `TORQUE_FACTOR` > 0 |
+| Active | Authorised | `LKA_STATE` = authorised and `TORQUE_FACTOR` = 0 |
+| Active | Available | `LKA_STATE` = selected and `TORQUE_FACTOR` = 0 (this is how openpilot releases) |
+| Active | Unauthorised | `FLAG_HOLD` false (driver override / inhibition from torque or wheel speed) |
+| Available/Authorised/Active | Unauthorised | speed below min, global EPS state unavailable, ESP or ABS regulating, ESP disconnected, ESP lamp request, driver inhibition request, `LKA_STATE` defect/unselected/unavailable |
+| any | Defect | global EPS state defect, CAN bus-off or mute, an LKA input invalid, out of range or reserved, or LKA input frames missing or too short (after confirmation) |
+
+So Active → Unauthorised without the driver on the wheel means the EPS dropped LKA on its own (speed, ESP, an
+internal limit). Active → Available only happens when openpilot asks for it. Sending an out-of-range or reserved value
+in 0x3F2 is enough for Defect.
+
 ### 3.2 Angle → torque
+The requested torque is a PD law on the column angle, scaled by the torque factor [ref]:
+```
+torque = K_p * TORQUE_FACTOR * (SET_ANGLE - angle - K_d * steering_wheel_speed)
+```
+then a driver-torque compensation factor and saturation. When `EPS_STATE_LKA` leaves Active the torque ramps out.
+
 `SET_ANGLE` → clip ±500° → speed-dependent saturation and setpoint rate limit → 2 Hz low-pass → PD/PID servo
 (≈0.5 Nm/°) × `TORQUE_FACTOR` (smoothed over 50 ms, slew-limited to ~1.1/s) → clip to **±3 motor-Nm (~60 Nm at the
 wheel) at every speed** [CAL]. This torque is **added** to normal assist:
@@ -162,6 +188,44 @@ the state; openpilot could gate engagement on them [ECU].
 - `steerRatio` is not available from the EPS. Keep the learned value.
 - Known EPS HW part numbers: 9828309580, 9828309680, 9828404980.
 
+### 4.1 Power, wake-up and ignition
+- PSA ECUs wake on one of two wired lines from the BSI [ref]:
+  - **+APC** ("après contact", the ignition positive): high from key on (including crank) until key off, and at key off
+    only once the speed is below a threshold (10 km/h). An ECU on +APC cannot run before key on.
+  - **RCD** (remote-controlled wake-up): the BSI pulses it to wake ECUs for partial wake-ups with the key off
+    (oil level, pre-heating, etc).
+- After key off an ECU may keep talking for up to 60 s (COM latch), then stops transmitting and sleeps [ref].
+  Because of RCD partial wake-ups, traffic on the chassis bus does **not** mean the ignition is on.
+- EPS vehicle connector: 2 power pins (12 V battery, return) + 3 signal pins: **pin 1 `EPS_ENABLE`** (+APC), pin 2 CAN-H,
+  pin 3 CAN-L [ref]. `EPS_ENABLE` drives the enable input of the EPS main regulator, so the EPS powers up from this wire,
+  not from CAN wake-up; a micro-held power latch keeps it alive for a short comm latch after +APC drops (raised from
+  0.5 s to 5 s in later SW) [ref]. This pin is a clean ignition positive for a harness that can reach the EPS connector.
+- The EPS has a wired +APC input and reports it as `ETAT_LIGNE_APC` in 0x795 [ref]. Assistance starts with +APC on and
+  the engine running, and stops with +APC off, engine cut and speed below a minimum, followed by a power latch [ref].
+  Losing +APC while driving switches assist off with the engine still running.
+- The front camera is supplied from **CAN+** (the BSI's network supply, on while the network is awake), not from +APC [ref].
+  The camera connector therefore has no ignition line.
+- Places where a real ignition positive is available near the openpilot harness [ref]:
+  - the BSI roof connector ("PAV", 35-way) pin 28: electrochromatic interior mirror "ignition positive" supply,
+    routed to the mirror right next to the camera (only on cars with that mirror);
+  - the diagnostic socket pin 1: "ignition positive" (AEE2010 R3 cars);
+  - the BSI main connector ("EP", 60-way) pin 9: "engine running information" (a wire, not an ignition positive).
+- The BSI broadcasts the vehicle power state in **0x432** (`IS_DAT_BSI_432` / `HS2_DAT_BSI_432`), ~20 Hz, 8 bytes [ref][route]:
+
+  | Signal | Bits | Values |
+  |---|---|---|
+  | `REVEIL_PRINCIPAL` | 7\|2 (byte 0 bits 7–6) | main wake-up request: 1 inactive, 2 active |
+  | `CPT_PROCESS_4B_BSI_1` | 11\|4 (byte 1 low nibble) | counter, steps +1 every frame [route] |
+  | `ETAT_PRINCIP_SEV` | 49\|2 (byte 6 bits 1–0) | 0 stop, 1 contact (ignition on), 2 crank, 3 reserved |
+  | `ETAT_RESEAU_ELEC` | 63\|4 (byte 7 high nibble) | electrical network state |
+
+  On the openpilot harness it is on bus 2 (BSI side) and bus 1, and on bus 0 only while the relay is open.
+  On all PSA rlogs checked (797 segments, 7 cars, 827k frames) the counter steps +1 on every frame and
+  `ETAT_PRINCIP_SEV` is 1 while driving, 1 with ignition on and engine off, 2 while cranking, and
+  goes to 0 about 0.2–0.3 s before the engine stops at key off. It reads 0 with the network awake and the key off [route].
+  There is no checksum. This is the best candidate for CAN ignition (same pattern as Tesla/Rivian/VW MEB: state +
+  counter in one frame).
+
 ---
 
 ## 5. Diagnostics and fingerprinting
@@ -189,6 +253,11 @@ the state; openpilot could gate engagement on them [ECU].
   | D41A | LKA factor |
   | D41B / D41C | LKA state and active tuning set (order unconfirmed) |
   | D403 / D404 / D405 | speed / battery / temperature |
+  | D407 | engine state [ref] |
+  | D408 | wake-up (+APC) signal state [ref] |
+  | D40C | ECU state [ref] |
+
+- Actuator tests over UDS are only allowed with +APC on, the engine not running and no assist being provided [ref].
 
 - Variant coding: **DID 2101**. Byte 1 bit 5 = LXA (LKA), bit 4 = multimode, bit 2 = Stop&Start, bit 0 = CityPark; byte 2 = angle-source variant.
   Reading it shows whether a car's EPS is coded for LKA. Writing it needs an extended session and security access.
@@ -198,6 +267,9 @@ the state; openpilot could gate engagement on them [ECU].
 ---
 
 ## 6. opendbc status
+
+Merged upstream: steering rate sign and 4 °/s scale, driver torque in Nm, and `EPS_STATE_LKA` Defect as a temporary
+steering fault. The specs in §2.2 and §3.1 agree with all three.
 
 An opendbc branch implements:
 - **DBC (`0x305`):** rate ×4; checksum and counter named so they are checked; angle validity flags.

@@ -131,6 +131,8 @@ BO_ 1074 IS_DAT_BSI_432: 8 BSI
  SG_ Shunt_Position : 54|2@0+ (1,0) [0|3] "" EPS
  SG_ Power_Supplies : 52|3@0+ (1,0) [0|7] "" EPS
  SG_ ETAT_PRINCIP_SEV : 49|2@0+ (1,0) [0|3] "" EPS
+ SG_ REVEIL_PRINCIPAL : 7|2@0+ (1,0) [0|3] "" EPS
+ SG_ COUNTER : 11|4@0+ (1,0) [0|15] "" EPS
 
 BO_ 1362 IS_DAT4_V2_BSI_552: 8 BSI
  SG_ COMPTEUR_TEMPOREL_VEHICULE : 7|32@0+ (0.1,0) [0|429496729.5] "s" EPS
@@ -254,6 +256,8 @@ CM_ SG_ 1042 Req_Mode_DA "Steering mode request (multimode / drive mode): 0 norm
 CM_ BO_ 1074 "IS_DAT_BSI_432: BSI electrical network data. Cycle 50 ms, timeout 500 ms (JDD2010 only).";
 CM_ SG_ 1074 ETAT_RESEAU_ELEC "Electrical network state: 0 TI nominal, 1 TI degraded, 2 TI ready for start, 3 cranking, 4 restart, 5 TA nominal, 6 TA degraded, 7 TA safety.";
 CM_ SG_ 1074 ETAT_PRINCIP_SEV "Main vehicle electrical state: 0 stop, 1 ignition on (contact), 2 cranking (demarrage).";
+CM_ SG_ 1074 REVEIL_PRINCIPAL "Main wake-up request: 0 invalid, 1 inactive, 2 active, 3 invalid.";
+CM_ SG_ 1074 COUNTER "CPT_PROCESS_4B_BSI_1, +1 per frame on all PSA cars checked. No checksum.";
 CM_ SG_ 1074 Shunt_Position "Shunt position (fault-log context).";
 CM_ SG_ 1074 Power_Supplies "Power supplies state (fault-log context).";
 CM_ BO_ 1362 "IS_DAT4_V2_BSI_552: vehicle time/odometer. Cycle 1000 ms, timeout 10 s. Layout below is the JDD2010 interpretation. Non-JDD2010 layout: SECONDE_ECOULEE 20 bit (byte0..byte2 hi), JOUR_ECOULE 12 bit, ANNEE_ECOULE byte4.";
