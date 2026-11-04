@@ -67,7 +67,7 @@ Car models in scope for the PSA openpilot port. If name and part number are pres
 
 ### CMP EPS insights
 Practical findings about the CMP EPS (LKA state machine, 0x3F2 rules, checksums, override latches, limits, diagnostics):
-[docs/eps_cmp.md](docs/eps_cmp.md). DBC fragment for all EPS-relevant frames: [dbc/psa_cmp_eps.dbc](dbc/psa_cmp_eps.dbc).
+[docs/eps_cmp.md](docs/eps_cmp.md). DBC fragment for all EPS-relevant frames: [dbc/psa_cmp_eps.dbc](dbc/psa_cmp_eps.dbc). Test routes: [docs/routes.md](docs/routes.md).
 
 ### Steering APIs
 - **AEE2010 R2 Architecture** - Torque based steering
