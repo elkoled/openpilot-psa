@@ -7,7 +7,7 @@ Practical findings about the CMP electric power steering ECU, validated where po
 - **[route]**: confirmed on real CAN data from a 208.
 - **[ECU]**: confirmed in the ECU's logic.
 - **[CAL]**: the logic exists, but the number comes from a development calibration and must be confirmed on a car.
-- **[ref]**: from PSA reference material, not yet confirmed on a car.
+- **[ref]**: documented behaviour, not yet confirmed on a car.
 
 Applies to: CMP / e-CMP cars with this EPS (208/2008 II, Corsa F, Mokka B, DS3 Crossback, C4 III and likely
 Avenger/600/Junior/Ypsilon; the model list is a hypothesis).
